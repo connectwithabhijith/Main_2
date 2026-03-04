@@ -12,6 +12,8 @@ const mlRoutes = require('./routes/ml');
 const adRoutes = require('./routes/ads');
 const messageRoutes = require('./routes/messages');
 const aiRoutes = require('./routes/ai');
+const recommendationRoutes = require('./routes/recommendationRoutes');
+const searchRoutes = require("./routes/search");
 
 
 // Initialize express
@@ -43,6 +45,8 @@ app.use('/api/ml', mlRoutes);
 app.use('/api/ads', adRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/ai', aiRoutes); 
+app.use('/api/recommendations', recommendationRoutes);
+app.use("/api/search", searchRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -73,7 +77,13 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
+
+
 const PORT = process.env.PORT || 3001;
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -19,7 +19,7 @@ const predictWaste = async (req, res) => {
     formData.append('file', fs.createReadStream(imagePath));
 
     // Call Flask ML API
-    const mlApiUrl = process.env.ML_API_URL || 'http://localhost:5000/predict';
+    const mlApiUrl = process.env.ML_API_URL || 'http://localhost:5001/predict';
     
     const response = await axios.post(mlApiUrl, formData, {
       headers: {

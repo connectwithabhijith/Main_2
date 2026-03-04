@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require("express");
+
 const {
   createAd,
   getAds,
@@ -8,19 +8,29 @@ const {
   updateAd,
   deleteAd,
   uploadImages
-} = require('../controllers/adController');
-const { protect } = require('../middleware/auth');
-const upload = require('../middleware/upload');
+} = require("../controllers/adController");
+
+const { protect } = require("../middleware/auth");
+const upload = require("../middleware/upload");
+
+const router = express.Router();
 
 // Public routes
-router.get('/', getAds);
-router.get('/:id', getAd);
+router.get("/", getAds);
+router.get("/:id", getAd);
 
 // Protected routes
-router.post('/', protect, createAd);
-router.get('/user/my-ads', protect, getMyAds);
-router.put('/:id', protect, updateAd);
-router.delete('/:id', protect, deleteAd);
-router.post('/upload', protect, upload.array('images', 5), uploadImages);
+router.post("/", protect, createAd);
+router.get("/user/my-ads", protect, getMyAds);
+router.put("/:id", protect, updateAd);
+router.delete("/:id", protect, deleteAd);
+
+// Upload images
+router.post(
+  "/upload",
+  protect,
+  upload.array("images", 5),
+  uploadImages
+);
 
 module.exports = router;
