@@ -17,11 +17,22 @@ Return JSON in this exact structure:
   "description": "",
   "industries": [],
   "uses": [],
+  "price": {
+    "amount": "",
+    "unit": "",
+    "currency": "INR"
+  },
   "recyclingSteps": [
     { "step": "", "tip": "" }
   ],
   "ecoTip": ""
 }
+
+Rules:
+- Price should be realistic Indian market value.
+- Amount should be numeric only.
+- Unit example: "per kg", "per piece".
+- Do NOT return anything except JSON.
 `;
 
   try {

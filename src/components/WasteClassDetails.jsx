@@ -768,7 +768,7 @@ const wasteClasses = {
   },
 };
 
-const WasteClassDetails = ({ predictedClass }) => {
+const WasteClassDetails = ({ predictedClass, onAIData }) => {
   const [aiData, setAiData] = useState(null);
   const [loadingAI, setLoadingAI] = useState(false);
 
@@ -793,9 +793,13 @@ const WasteClassDetails = ({ predictedClass }) => {
         const data = await res.json();
 
         // basic validation
-        if (data && data.description) {
-          setAiData(data);
-        }
+       if (data && data.description) {
+  setAiData(data);
+
+  if (onAIData) {
+    onAIData(data);   // send AI result to PostAd page
+  }
+}
       } catch (err) {
         console.error("AI fetch failed", err);
       } finally {
@@ -862,6 +866,26 @@ const WasteClassDetails = ({ predictedClass }) => {
         </div>
 
         <p className="text-muted-foreground mb-6">{waste.description}</p>
+
+        {/* AI Suggested Price */}
+{aiData?.price && (
+  <div className="mb-6 bg-card/50 rounded-lg p-4 border border-border/50">
+    <div className="flex items-center gap-2 mb-2">
+      <Sparkles className="w-4 h-4 text-primary" />
+      <span className="text-sm font-semibold text-foreground">
+        AI Suggested Market Price
+      </span>
+    </div>
+
+    <div className="text-lg font-bold text-primary">
+      ₹{aiData.price.amount} {aiData.price.unit}
+    </div>
+
+    <p className="text-xs text-muted-foreground">
+      Estimated recycling market value in India
+    </p>
+  </div>
+)}
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Industries Section */}

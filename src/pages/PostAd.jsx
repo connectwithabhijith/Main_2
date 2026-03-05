@@ -282,10 +282,18 @@ const PostAd = () => {
 
                 {/* Prediction Result - Enhanced WasteClassDetails */}
                 {prediction && (
-                  <WasteClassDetails 
-                    predictedClass={prediction.predictedCategory} 
-                    uploadedImage={imagePreview}
-                  />
+                  <WasteClassDetails
+  predictedClass={prediction.predictedCategory}
+  uploadedImage={imagePreview}
+  onAIData={(aiData) => {
+    if (aiData?.price?.amount) {
+      setFormData(prev => ({
+        ...prev,
+        price: aiData.price.amount
+      }));
+    }
+  }}
+/>
                 )}
 
                 {/* Continue Button */}

@@ -1,4 +1,7 @@
 const Ad = require('../models/Ad');
+const SearchHistory = require('../models/SearchHistory');
+const Notification = require('../models/Notification');
+const { onAdPosted } = require('./recommendationController');
 
 // @desc    Create new ad
 // @route   POST /api/ads
@@ -19,8 +22,8 @@ const createAd = async (req, res) => {
 
     // Validation
     if (!title || !description || !category || !location) {
-      return res.status(400).json({ 
-        message: 'Please provide title, description, category, and location' 
+      return res.status(400).json({
+        message: 'Please provide title, description, category, and location'
       });
     }
 
@@ -37,7 +40,16 @@ const createAd = async (req, res) => {
       seller: req.user._id
     });
 
-    const populatedAd = await Ad.findById(ad._id).populate('seller', 'name email phone location');
+    const populatedAd = await Ad.findById(ad._id).populate(
+      'seller',
+      'name email phone location'
+    );
+
+    // Notify users whose unresolved searches match this new ad (fire-and-forget)
+    onAdPosted(
+      { params: { adId: String(ad._id) } },
+      { json: () => {} }
+    ).catch((err) => console.warn('onAdPosted error:', err.message));
 
     res.status(201).json(populatedAd);
   } catch (error) {
