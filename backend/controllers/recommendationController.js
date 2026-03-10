@@ -3,7 +3,7 @@ const Notification = require("../models/Notification");
 const Ad = require("../models/Ad");
 const axios = require("axios");
 
-const ML_API = process.env.ML_API_URL || "http://localhost:5001";
+const ML_API = (process.env.ML_API_URL || "http://localhost:5001/predict").replace(/\/predict$/, "");
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 

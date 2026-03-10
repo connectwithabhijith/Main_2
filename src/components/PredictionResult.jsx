@@ -1,4 +1,4 @@
-import { CheckCircle2, XCircle, Sparkles, Loader2, BarChart3 } from "lucide-react";
+import { CheckCircle2, XCircle, Sparkles, Loader2, BarChart3, Bot } from "lucide-react";
 
 const PredictionResult = ({ prediction, isLoading }) => {
   if (isLoading) {
@@ -43,7 +43,10 @@ const PredictionResult = ({ prediction, isLoading }) => {
     );
   }
 
-  const confidencePercent = (prediction.confidence * 100).toFixed(1);
+  const isAI = prediction.source === "ai";
+  const confidencePercent = prediction.confidence != null
+    ? (prediction.confidence * 100).toFixed(1)
+    : null;
 
   return (
     <div className="bg-card border border-border rounded-xl p-6 min-h-[400px]">
@@ -55,32 +58,51 @@ const PredictionResult = ({ prediction, isLoading }) => {
       {/* Main Prediction */}
       <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-6 mb-6">
         <p className="text-sm text-muted-foreground mb-2">Predicted Class</p>
-        <h2 className="text-3xl font-bold gradient-text mb-4">{prediction.class}</h2>
+        <h2 className="text-3xl font-bold gradient-text mb-4">{prediction.predictedCategory}</h2>
+
+        {/* AI Source Badge */}
+        {isAI && (
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/20 rounded-full mb-4">
+            <Bot className="w-3.5 h-3.5 text-accent-foreground" />
+            <span className="text-xs font-medium text-accent-foreground">AI-identified</span>
+          </div>
+        )}
         
-        {/* Confidence Bar */}
-        <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Confidence</span>
-            <span className="font-mono text-primary">{confidencePercent}%</span>
+        {/* Confidence Bar - only for ML predictions */}
+        {confidencePercent != null && (
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Confidence</span>
+              <span className="font-mono text-primary">{confidencePercent}%</span>
+            </div>
+            <div className="h-3 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-1000 ease-out"
+                style={{ width: `${confidencePercent}%` }}
+              />
+            </div>
           </div>
-          <div className="h-3 bg-muted rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-1000 ease-out"
-              style={{ width: `${confidencePercent}%` }}
-            />
+        )}
+
+        {/* Recyclability */}
+        {prediction.recyclability && (
+          <div className="mt-3">
+            <span className={`text-sm font-medium ${prediction.recyclability === "Recyclable" ? "text-green-500" : "text-destructive"}`}>
+              {prediction.recyclability}
+            </span>
           </div>
-        </div>
+        )}
       </div>
 
-      {/* All Predictions */}
-      {prediction.all_predictions && prediction.all_predictions.length > 0 && (
+      {/* All Predictions - only for ML source */}
+      {!isAI && prediction.allPredictions && prediction.allPredictions.length > 0 && (
         <div>
           <div className="flex items-center gap-2 mb-4">
             <BarChart3 className="w-4 h-4 text-muted-foreground" />
             <span className="text-sm font-medium text-foreground">All Predictions</span>
           </div>
           <div className="space-y-3">
-            {prediction.all_predictions.map((pred, index) => (
+            {prediction.allPredictions.map((pred, index) => (
               <div key={index} className="space-y-1">
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">{pred.class}</span>

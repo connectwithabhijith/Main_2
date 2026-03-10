@@ -4,6 +4,7 @@ import PredictionResult from "../components/PredictionResult.jsx";
 import Header from "../components/Header.jsx";
 import WasteClassDetails from "../components/WasteClassDetails.jsx";
 import { Leaf } from "lucide-react";
+import { mlApi } from "../lib/api";
 
 const Index = () => {
   const [prediction, setPrediction] = useState(null);
@@ -14,26 +15,14 @@ const Index = () => {
     setIsLoading(true);
     setPrediction(null);
 
-    const formData = new FormData();
-    formData.append("image", file);
-
     try {
-      const response = await fetch("http://localhost:5000/predict", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Classification failed");
-      }
-
-      const result = await response.json();
-      setPrediction(result);
+      const result = await mlApi.predict(file);
+      setPrediction(result.prediction);
     } catch (error) {
       console.error("Error classifying image:", error);
       setPrediction({
         error: true,
-        message: "Failed to classify image. Make sure the Flask API is running.",
+        message: error.message || "Failed to classify image. Please try again.",
       });
     } finally {
       setIsLoading(false);
@@ -104,7 +93,7 @@ const Index = () => {
             </div>
 
             {/* Waste Class Details - Only shows when an image is classified */}
-            <WasteClassDetails predictedClass={prediction?.class} uploadedImage={uploadedImage} />
+            <WasteClassDetails predictedClass={prediction?.predictedCategory} uploadedImage={uploadedImage} />
           </div>
         </main>
       </div>

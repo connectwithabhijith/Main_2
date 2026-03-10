@@ -28,7 +28,7 @@ app = Flask(__name__)
 CORS(app)
 
 # ─── paths ───────────────────────────────────────────────────────────────────
-MODEL_DIR          = os.path.join(os.path.dirname(__file__), "model")
+MODEL_DIR          = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model")
 WASTE_MODEL_PATH   = os.environ.get("MODEL_PATH", os.path.join(MODEL_DIR, "waste_classifier.keras"))
 LGBM_MODEL_PATH    = os.path.join(MODEL_DIR, "lgbm_recommendation.txt")
 
@@ -275,8 +275,10 @@ def match_search():
     return jsonify({"notify": notify})
 
 
+# Load model at import time so it works with both `python app.py` and `flask run`
+load_waste_model()
+
 if __name__ == "__main__":
-    load_waste_model()
     port  = int(os.environ.get("PORT", 5001))
     debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
     print(f"\nEcoSwap ML API on http://localhost:{port}")

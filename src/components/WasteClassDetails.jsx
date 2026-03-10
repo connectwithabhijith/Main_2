@@ -837,14 +837,24 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
   }
 
   const fallbackWaste = wasteClasses[predictedClass.toLowerCase()];
+  const defaultWaste = {
+    name: predictedClass,
+    icon: Recycle,
+    color: "from-muted/50 to-muted/30",
+    borderColor: "border-border",
+    iconBg: "bg-muted",
+    recyclable: null,
+    grade: "—",
+    description: "",
+    industries: [],
+    uses: [],
+    recyclingSteps: [],
+  };
   const waste = {
+    ...defaultWaste,
     ...fallbackWaste,
     ...aiData,
   };
-
-  if (!waste) {
-    return null;
-  }
 
   const IconComponent = waste.icon || Package;
 
