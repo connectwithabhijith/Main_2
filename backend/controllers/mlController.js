@@ -98,11 +98,12 @@ const predictWaste = async (req, res) => {
       suggestedUsage: getSuggestedUsage(predictedClass)
     };
 
-    // AI fallback if confidence low or generic "trash" detected
-    if (confidence < 0.85 || predictedClass.toLowerCase() === "trash") {
+    // AI fallback if confidence low or class not in known categories
+    const KNOWN_CATEGORIES = ["cardboard", "glass", "metal", "paper", "plastic"];
+    if (confidence < 0.85 || !KNOWN_CATEGORIES.includes(predictedClass.toLowerCase())) {
       console.log(
-        predictedClass.toLowerCase() === "trash"
-          ? "Generic 'trash' detected, using AI for specific identification..."
+        !KNOWN_CATEGORIES.includes(predictedClass.toLowerCase())
+          ? `Unknown class '${predictedClass}' detected, using AI for specific identification...`
           : "Low ML confidence, using AI vision fallback..."
       );
 
@@ -178,8 +179,6 @@ const getSuggestedUsage = (category) => {
       "Can be recycled into new paper products, tissues, or cardboard",
     plastic:
       "Can be recycled into new plastic products, textiles, or construction materials",
-    trash:
-      "Should be disposed of properly. Consider separating any recyclable components"
   };
 
   return (

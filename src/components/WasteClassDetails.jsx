@@ -734,38 +734,6 @@ const wasteClasses = {
       "Playground equipment",
     ],
   },
-  trash: {
-    name: "Trash",
-    icon: Trash2,
-    color: "from-rose-500/20 to-rose-600/10",
-    borderColor: "border-rose-500/30",
-    iconBg: "bg-rose-500/10",
-    description: "Non-recyclable waste that requires proper disposal.",
-    quickFacts: [
-      {
-        text: "Average person generates 4.5 lbs daily",
-        icon: Info,
-        highlight: "4.5 lbs",
-      },
-      {
-        text: "Only 34% of waste is recycled in US",
-        icon: Clock,
-        highlight: "34%",
-      },
-      {
-        text: "Reducing is better than recycling",
-        icon: Trophy,
-        highlight: "Reduce",
-      },
-    ],
-    industries: ["Waste Management", "Energy Production"],
-    uses: [
-      "Waste-to-energy plants",
-      "Landfill management",
-      "Composting (organic)",
-      "Incineration",
-    ],
-  },
 };
 
 const WasteClassDetails = ({ predictedClass, onAIData }) => {
@@ -977,9 +945,7 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
           <Leaf className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground">
             {aiData?.ecoTip ||
-              (predictedClass.toLowerCase() === "trash"
-                ? "While this item may not be recyclable, consider if any parts can be separated for recycling."
-                : `Recycling ${waste.name?.toLowerCase()} helps conserve natural resources.`)}
+              `Recycling ${waste.name?.toLowerCase()} helps conserve natural resources.`}
           </p>
         </div>
       </div>

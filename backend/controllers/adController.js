@@ -81,7 +81,11 @@ const getAds = async (req, res) => {
     }
 
     if (search) {
-      query.$text = { $search: search };
+      const searchRegex = new RegExp(search, 'i');
+      query.$or = [
+        { title: searchRegex },
+        { description: searchRegex }
+      ];
     }
 
     // Sort options

@@ -15,7 +15,8 @@ const adSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Category is required'],
-    enum: ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
+    trim: true,
+    lowercase: true
   },
   images: [{
     type: String // URLs or file paths

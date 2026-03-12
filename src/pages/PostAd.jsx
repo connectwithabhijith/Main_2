@@ -20,8 +20,10 @@ const CATEGORIES = [
   { id: 'metal', name: 'Metal' },
   { id: 'paper', name: 'Paper' },
   { id: 'plastic', name: 'Plastic' },
-  { id: 'trash', name: 'Trash / Non-recyclable' }
+  { id: 'other', name: 'Other (Custom)' }
 ];
+
+const KNOWN_CATEGORIES = ['cardboard', 'glass', 'metal', 'paper', 'plastic'];
 
 const CONDITIONS = [
   { id: 'new', name: 'New' },
@@ -49,6 +51,7 @@ const PostAd = () => {
     title: '',
     description: '',
     category: '',
+    customCategory: '',
     suggestedUsage: '',
     quantity: '',
     condition: 'good',
@@ -88,9 +91,12 @@ const PostAd = () => {
       setPrediction(result.prediction);
       
       // Auto-fill form with prediction
+      const predicted = result.prediction.predictedCategory?.toLowerCase() || '';
+      const isKnown = KNOWN_CATEGORIES.includes(predicted);
       setFormData(prev => ({
         ...prev,
-        category: result.prediction.predictedCategory?.toLowerCase() || '',
+        category: isKnown ? predicted : 'other',
+        customCategory: isKnown ? '' : (result.prediction.predictedCategory || ''),
         suggestedUsage: result.prediction.suggestedUsage || ''
       }));
       
@@ -147,7 +153,7 @@ const PostAd = () => {
       const adData = {
         title: formData.title,
         description: formData.description,
-        category: formData.category,
+        category: formData.category === 'other' ? formData.customCategory : formData.category,
         images: imageUrls,
         mlPrediction: prediction ? {
           predictedCategory: prediction.predictedCategory,
@@ -299,7 +305,19 @@ const PostAd = () => {
                 {/* Continue Button */}
                 {prediction && (
                   <Button 
-                    onClick={() => setStep(2)} 
+                    onClick={() => {
+                      // Auto-add the classified image as the first additional image
+                      if (imageFile && imagePreview) {
+                        setAdditionalImages(prev => {
+                          const alreadyAdded = prev.some(img => img.preview === imagePreview);
+                          if (!alreadyAdded) {
+                            return [{ file: imageFile, preview: imagePreview }, ...prev].slice(0, 5);
+                          }
+                          return prev;
+                        });
+                      }
+                      setStep(2);
+                    }} 
                     className="w-full"
                     size="lg"
                   >
@@ -367,6 +385,15 @@ const PostAd = () => {
                         ))}
                       </SelectContent>
                     </Select>
+                    {formData.category === 'other' && (
+                      <div className="mt-2">
+                        <Input
+                          placeholder="Enter custom category name"
+                          value={formData.customCategory}
+                          onChange={(e) => setFormData({ ...formData, customCategory: e.target.value })}
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Description */}
@@ -393,7 +420,7 @@ const PostAd = () => {
 
                   {/* Additional Images */}
                   <div className="space-y-2">
-                    <Label>Additional Images (up to 4)</Label>
+                    <Label>Images (up to 5)</Label>
                     <div className="grid grid-cols-4 gap-2">
                       {additionalImages.map((img, index) => (
                         <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-border">
@@ -407,7 +434,7 @@ const PostAd = () => {
                           </button>
                         </div>
                       ))}
-                      {additionalImages.length < 4 && (
+                      {additionalImages.length < 5 && (
                         <label className="aspect-square rounded-lg border-2 border-dashed border-border flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
                           <ImagePlus className="w-6 h-6 text-muted-foreground" />
                           <input

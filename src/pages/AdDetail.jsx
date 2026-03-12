@@ -19,8 +19,7 @@ const CATEGORY_ICONS = {
   glass: Wine,
   metal: Wrench,
   paper: FileText,
-  plastic: Recycle,
-  trash: Trash2
+  plastic: Recycle
 };
 
 const AdDetail = () => {

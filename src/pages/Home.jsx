@@ -6,23 +6,21 @@ import { Input } from "../components/ui/input";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
-import { adsApi } from "../lib/api";
-import { Search, MapPin, Recycle, Package, Loader2, Box, Wine, Wrench, FileText, Trash2 } from "lucide-react";
+import { adsApi, categoriesApi } from "../lib/api";
+import { Search, MapPin, Recycle, Package, Loader2, Box, Wine, Wrench, FileText, Tag } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 import RecommendedAds from "../components/RecommendedAds";
 import axios from "axios";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
 
-const CATEGORIES = [
-  { id: "all",       name: "All Categories", icon: Package  },
-  { id: "cardboard", name: "Cardboard",      icon: Box      },
-  { id: "glass",     name: "Glass",          icon: Wine     },
-  { id: "metal",     name: "Metal",          icon: Wrench   },
-  { id: "paper",     name: "Paper",          icon: FileText },
-  { id: "plastic",   name: "Plastic",        icon: Recycle  },
-  { id: "trash",     name: "Trash",          icon: Trash2   },
-];
+const KNOWN_ICONS = {
+  cardboard: Box,
+  glass: Wine,
+  metal: Wrench,
+  paper: FileText,
+  plastic: Recycle,
+};
 
 const formatPrice = (price) => {
   if (price?.isFree) return "Free";
@@ -37,6 +35,31 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({ category: "all", search: "", city: "", sort: "newest" });
   const [pagination, setPagination] = useState({ page: 1, pages: 1, total: 0 });
+  const [categories, setCategories] = useState([]);
+
+  // ── fetch categories from API ─────────────────────────────────────────────
+  useEffect(() => {
+    categoriesApi.getAll()
+      .then((data) => {
+        const cats = (data || []).map((c) => ({
+          id: c.id,
+          name: c.name,
+          icon: KNOWN_ICONS[c.id] || Tag,
+        }));
+        setCategories([{ id: "all", name: "All Categories", icon: Package }, ...cats]);
+      })
+      .catch(() => {
+        // Fallback to known categories
+        setCategories([
+          { id: "all", name: "All Categories", icon: Package },
+          { id: "cardboard", name: "Cardboard", icon: Box },
+          { id: "glass", name: "Glass", icon: Wine },
+          { id: "metal", name: "Metal", icon: Wrench },
+          { id: "paper", name: "Paper", icon: FileText },
+          { id: "plastic", name: "Plastic", icon: Recycle },
+        ]);
+      });
+  }, []);
 
   // ── fetch ads ──────────────────────────────────────────────────────────────
   const fetchAds = useCallback(async (page = 1) => {
@@ -54,7 +77,7 @@ const Home = () => {
     } finally {
       setLoading(false);
     }
-  }, [filters.category, filters.sort]);
+  }, [filters.category, filters.sort, filters.search, filters.city]);
 
   useEffect(() => { fetchAds(); }, [fetchAds]);
 
@@ -69,7 +92,7 @@ const Home = () => {
     fetchAds(1);
   };
 
-  const getCategoryIcon = (id) => (CATEGORIES.find((c) => c.id === id)?.icon || Package);
+
 
   const MEDIA = API.replace("/api", "");
 
@@ -115,7 +138,7 @@ const Home = () => {
       <section className="border-b border-border">
         <div className="container py-4">
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            {CATEGORIES.map((cat) => {
+            {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <Button
@@ -174,20 +197,37 @@ const Home = () => {
           {!loading && ads.length === 0 && (
             <div className="text-center py-20">
               <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
-                <Package className="w-8 h-8 text-muted-foreground" />
+                {filters.search || filters.category !== "all" || filters.city
+                  ? <Search className="w-8 h-8 text-muted-foreground" />
+                  : <Package className="w-8 h-8 text-muted-foreground" />
+                }
               </div>
-              <h2 className="text-xl font-semibold mb-2">No listings yet</h2>
-              <p className="text-muted-foreground mb-6">Be the first to post a recyclable item!</p>
-              <Button asChild>
-                <Link to="/post-ad">Post Your First Ad</Link>
-              </Button>
+              {filters.search || filters.category !== "all" || filters.city ? (
+                <>
+                  <h2 className="text-xl font-semibold mb-2">No results found</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Try adjusting your search or filters to find what you're looking for.
+                  </p>
+                  <Button onClick={() => setFilters({ category: "all", search: "", city: "", sort: filters.sort })}>
+                    Clear Filters
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-xl font-semibold mb-2">No listings yet</h2>
+                  <p className="text-muted-foreground mb-6">Be the first to post a recyclable item!</p>
+                  <Button asChild>
+                    <Link to="/post-ad">Post Your First Ad</Link>
+                  </Button>
+                </>
+              )}
             </div>
           )}
 
           {!loading && ads.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {ads.map((ad) => {
-                const CategoryIcon = getCategoryIcon(ad.category);
+                const CategoryIcon = KNOWN_ICONS[ad.category] || Package;
                 return (
                   <Link key={ad._id} to={`/ad/${ad._id}`}>
                     <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full">

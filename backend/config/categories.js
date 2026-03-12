@@ -28,12 +28,6 @@ const WASTE_CATEGORIES = [
     name: 'Plastic',
     description: 'Bottles, containers, plastic packaging',
     recyclable: true
-  },
-  {
-    id: 'trash',
-    name: 'Trash / Non-recyclable',
-    description: 'Mixed waste, non-recyclable materials',
-    recyclable: false
   }
 ];
 

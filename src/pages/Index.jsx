@@ -70,7 +70,7 @@ const Index = () => {
                 Help protect our planet by properly classifying waste. Upload an image and our AI will identify the waste type for sustainable recycling.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mt-6">
-                {["🗃️ Cardboard", "🫙 Glass", "⚙️ Metal", "📄 Paper", "🧴 Plastic", "🗑️ Trash"].map((label) => (
+                {["🗃️ Cardboard", "🫙 Glass", "⚙️ Metal", "📄 Paper", "🧴 Plastic"].map((label) => (
                   <span key={label} className="px-3 py-1.5 bg-secondary text-secondary-foreground text-sm rounded-full border border-primary/20 hover:bg-primary/10 transition-colors">
                     {label}
                   </span>
