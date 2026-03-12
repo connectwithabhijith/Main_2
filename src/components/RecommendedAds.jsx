@@ -140,13 +140,21 @@ const RecommendedAds = ({ userId }) => {
   const [unreadCount, setUnreadCount] = useState(0);
   const [showNotifs, setShowNotifs]   = useState(false);
 
+  const getDismissedIds = () => {
+    try {
+      return JSON.parse(localStorage.getItem(`dismissed_recs_${userId}`)) || [];
+    } catch { return []; }
+  };
+
   const fetchRecommendations = useCallback(() => {
     if (!userId) return;
     setLoading(true);
     axios
       .get(`${API}/recommendations/${userId}`)
       .then((r) => {
-        setRecommended(r.data.recommended || []);
+        const dismissed = getDismissedIds();
+        const filtered = (r.data.recommended || []).filter(ad => !dismissed.includes(ad._id));
+        setRecommended(filtered);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -178,6 +186,12 @@ const RecommendedAds = ({ userId }) => {
   }
 
   if (!recommended.length) return null;
+
+  const handleDismissOne = (adId) => {
+    const dismissed = getDismissedIds();
+    localStorage.setItem(`dismissed_recs_${userId}`, JSON.stringify([...dismissed, adId]));
+    setRecommended(prev => prev.filter(ad => ad._id !== adId));
+  };
 
   return (
     <section>
@@ -223,7 +237,17 @@ const RecommendedAds = ({ userId }) => {
       {/* Recommended ads grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
         {recommended.map((ad) => (
-          <AdCard key={ad._id} ad={ad} highlight={true} />
+          <div key={ad._id} className="relative">
+            <AdCard ad={ad} highlight={true} />
+            <button
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleDismissOne(ad._id); }}
+              title="Dismiss recommendation"
+              className="absolute top-2 left-2 z-10 flex items-center gap-1 px-2 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium shadow-md hover:bg-destructive transition-colors"
+            >
+              <X className="w-3 h-3" />
+              <span>Not interested</span>
+            </button>
+          </div>
         ))}
       </div>
     </section>
