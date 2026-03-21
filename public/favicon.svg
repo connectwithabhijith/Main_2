@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Recycling symbol: three chasing arrows -->
+  <!-- Arrow 1 (top) -->
+  <path d="M256 40 L190 155 L220 155 L220 220 L292 220 L292 155 L322 155 Z" 
+        fill="#3d8b37" stroke="#1a1a1a" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Arrow 2 (bottom-right) -->
+  <path d="M432 380 L322 295 L322 325 L262 290 L226 352 L286 387 L286 357 Z" 
+        fill="#4a9e44" stroke="#1a1a1a" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Arrow 3 (bottom-left) -->
+  <path d="M80 380 L190 295 L190 325 L250 290 L286 352 L226 387 L226 357 Z" 
+        fill="#358030" stroke="#1a1a1a" stroke-width="12" stroke-linejoin="round"/>
+  <!-- Connecting bars -->
+  <rect x="220" y="220" width="72" height="70" rx="4" fill="#3d8b37" stroke="#1a1a1a" stroke-width="10"/>
+  <rect x="286" y="290" width="72" height="70" rx="4" fill="#4a9e44" stroke="#1a1a1a" stroke-width="10" transform="rotate(60,322,325)"/>
+  <rect x="154" y="290" width="72" height="70" rx="4" fill="#358030" stroke="#1a1a1a" stroke-width="10" transform="rotate(-60,190,325)"/>
+</svg>
