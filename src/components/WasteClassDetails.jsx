@@ -835,8 +835,15 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
           <div className={`p-3 ${waste.iconBg} rounded-xl`}>
             <IconComponent className="w-6 h-6 text-foreground" />
           </div>
-          <div>
-            <h3 className="text-xl font-bold text-foreground">{waste.name}</h3>
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="text-xl font-bold text-foreground">{waste.name}</h3>
+              {aiData?.ragMetadata?.ragUsed && (
+                <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 rounded-full border border-emerald-500/20">
+                  RAG-Powered
+                </span>
+              )}
+            </div>
             <p className="text-sm text-muted-foreground">
               Recycling & Industry Information
             </p>
@@ -940,6 +947,55 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
           </div>
         </div>
 
+        {/* Government Regulations Section */}
+        {aiData?.governmentRegulations && (
+          <div className="mt-6 bg-card/50 rounded-lg p-4 border border-amber-500/20">
+            <div className="flex items-center gap-2 mb-3">
+              <Globe className="w-4 h-4 text-amber-600" />
+              <span className="text-sm font-semibold text-foreground">
+                Indian Government Regulations
+              </span>
+            </div>
+
+            {aiData.governmentRegulations.applicableRules && (
+              <p className="text-xs font-medium text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-md mb-3">
+                📜 {aiData.governmentRegulations.applicableRules}
+              </p>
+            )}
+
+            {aiData.governmentRegulations.keyProvisions?.length > 0 && (
+              <div className="space-y-1.5 mb-3">
+                {aiData.governmentRegulations.keyProvisions.map((provision, i) => (
+                  <div key={i} className="flex gap-2 items-start">
+                    <CheckCircle className="w-3.5 h-3.5 text-amber-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-xs text-muted-foreground">{provision}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {aiData.governmentRegulations.citizenDuty && (
+              <div className="flex gap-2 items-start mt-2 p-2 bg-blue-500/5 rounded-md border border-blue-500/10">
+                <ArrowRight className="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-medium text-blue-600 dark:text-blue-400">Your Duty as a Citizen</p>
+                  <p className="text-xs text-muted-foreground">{aiData.governmentRegulations.citizenDuty}</p>
+                </div>
+              </div>
+            )}
+
+            {aiData.governmentRegulations.penalty && (
+              <div className="flex gap-2 items-start mt-2 p-2 bg-red-500/5 rounded-md border border-red-500/10">
+                <XCircle className="w-3.5 h-3.5 text-red-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-medium text-red-600 dark:text-red-400">Penalty for Non-Compliance</p>
+                  <p className="text-xs text-muted-foreground">{aiData.governmentRegulations.penalty}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Eco tip */}
         <div className="mt-6 flex items-start gap-3 p-4 bg-primary/5 rounded-lg border border-primary/10">
           <Leaf className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -948,6 +1004,16 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
               `Recycling ${waste.name?.toLowerCase()} helps conserve natural resources.`}
           </p>
         </div>
+
+        {/* RAG Source Attribution */}
+        {aiData?.ragMetadata?.ragUsed && (
+          <div className="mt-4 flex items-center gap-2 text-[11px] text-muted-foreground/60">
+            <Sparkles className="w-3 h-3" />
+            <span>
+              Powered by RAG • {aiData.ragMetadata.sourcesCount} knowledge sources • KB v{aiData.ragMetadata.knowledgeBaseVersion}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

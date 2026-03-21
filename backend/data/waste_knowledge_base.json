@@ -1,0 +1,726 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-21",
+    "description": "Curated waste recycling knowledge base for EcoSwap RAG pipeline",
+    "sources": [
+      "Solid Waste Management Rules, 2016 (MoEFCC)",
+      "Plastic Waste Management Rules, 2016 (amended 2024)",
+      "E-Waste (Management) Rules, 2022",
+      "Battery Waste Management Rules, 2022",
+      "Hazardous and Other Wastes (Management & Transboundary Movement) Rules, 2016",
+      "Construction & Demolition Waste Management Rules, 2016",
+      "Central Pollution Control Board (CPCB) Guidelines",
+      "Swachh Bharat Mission Guidelines"
+    ]
+  },
+  "wasteTypes": [
+    {
+      "type": "cardboard",
+      "aliases": ["corrugated box", "carton", "packaging board", "paperboard"],
+      "description": "Corrugated cardboard boxes, packaging materials, cartons, and cardboard sheets. One of the most commonly recycled materials in India, cardboard is a dry waste category under SWM Rules 2016.",
+      "recyclable": true,
+      "recyclingGrade": "A",
+      "decompositionTime": "2-3 months in landfill",
+      "recyclingMethods": [
+        {
+          "method": "Mechanical Pulping",
+          "steps": [
+            "Remove all tape, staples, plastic inserts or wax coatings from the cardboard",
+            "Flatten all boxes to reduce volume — saves up to 75% storage space",
+            "Keep cardboard clean and dry — wet or food-contaminated cardboard must go to composting, not recycling",
+            "Segregate from other dry waste as per SWM Rules 2016 three-bin segregation mandate",
+            "Hand over segregated dry waste to authorized waste collectors or deposit at designated collection points",
+            "At recycling facility: cardboard is pulped with water, cleaned of ink and adhesives, pressed into new sheets"
+          ],
+          "tip": "Under SWM Rules 2016, waste generators must segregate waste into wet (biodegradable), dry (including cardboard), and domestic hazardous categories before handing to collectors."
+        },
+        {
+          "method": "Composting",
+          "steps": [
+            "Shred non-recyclable or food-contaminated cardboard into small pieces",
+            "Mix with green/wet waste in a compost bin",
+            "Cardboard adds carbon ('brown material') that balances nitrogen-rich kitchen waste",
+            "Compost is ready in 2-4 months"
+          ],
+          "tip": "Pizza boxes and food-stained cardboard that can't be recycled are excellent for composting. Under SWM Rules 2016, bulk waste generators (>100 kg/day) must compost biodegradable waste on-site."
+        }
+      ],
+      "industries": ["Packaging & Logistics", "Paper Mills", "Furniture Manufacturing", "Construction (insulation)", "Arts & Crafts"],
+      "uses": ["New cardboard boxes", "Paperboard products", "Egg cartons", "Building insulation", "Paper bags", "Tissue paper"],
+      "environmentalFacts": {
+        "treesSavedPerTon": "17 trees saved per ton recycled",
+        "waterSavedPerTon": "7,000 gallons of water saved per ton",
+        "energySavedPerTon": "4,100 kWh of electricity saved per ton",
+        "co2ReductionPerTon": "1.5 tons of CO₂ emissions prevented per ton recycled",
+        "landfillReduction": "Recycling 1 ton of cardboard saves 9 cubic yards of landfill space"
+      },
+      "marketPrice": {
+        "amount": "8-14",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Price varies by quality, condition, and local market. Clean, dry OCC (Old Corrugated Containers) fetch higher prices. Rates from Indian kabadiwala/scrap dealer markets."
+      },
+      "commonItems": ["Amazon/Flipkart delivery boxes", "Cereal boxes", "Shoe boxes", "Moving boxes", "Pizza boxes (if clean)", "Toilet paper rolls", "Egg cartons", "Paper towel tubes"],
+      "ecoTips": [
+        "Reuse cardboard boxes for storage or shipping before recycling",
+        "One ton of recycled cardboard saves 17 trees and 7,000 gallons of water",
+        "Under Swachh Bharat Mission, citizens are encouraged to sell dry waste to kabadiwalas for proper recycling",
+        "Keep a separate bin for dry recyclables including cardboard as mandated by SWM Rules 2016"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016 (MoEFCC Notification S.O. 1357(E))",
+        "keyProvisions": [
+          "Rule 4: Waste generators must segregate waste at source into three categories — biodegradable (wet), non-biodegradable/dry (including cardboard), and domestic hazardous waste",
+          "Rule 4(2): No person shall throw, burn, or bury solid waste in open public spaces, streets, drains or water bodies",
+          "Rule 4(6): Bulk waste generators (>100 kg/day) must set up in-house waste processing for biodegradable waste",
+          "Rule 15: Local authorities must arrange door-to-door collection of segregated waste",
+          "Cardboard falls under 'dry waste' category and must be kept separate for recycling"
+        ],
+        "citizenDuty": "Every citizen must segregate waste at source into three bins (wet, dry, hazardous) and hand over segregated waste to authorized collectors as per Rule 4 of SWM Rules 2016",
+        "penalty": "Spot fines of ₹200-₹500 for littering; up to ₹5,000-₹1,00,000 for improper waste disposal depending on local municipal bylaws",
+        "eprNotes": "Under draft EPR Rules 2024, packaging manufacturers will be responsible for collecting back packaging waste including cardboard"
+      }
+    },
+    {
+      "type": "glass",
+      "aliases": ["bottle", "jar", "glassware", "glass container", "broken glass"],
+      "description": "Glass bottles, jars, containers, and glassware. Glass is 100% recyclable and can be recycled infinitely without loss of quality. It is classified as dry waste under SWM Rules 2016.",
+      "recyclable": true,
+      "recyclingGrade": "A+",
+      "decompositionTime": "1 million+ years in landfill — glass does NOT decompose naturally",
+      "recyclingMethods": [
+        {
+          "method": "Cullet Recycling (Primary Method)",
+          "steps": [
+            "Rinse glass containers to remove food residue — a quick water rinse is sufficient",
+            "Remove metal lids and caps — recycle these separately as metal waste",
+            "Paper labels do NOT need to be removed — they burn off during processing",
+            "Sort by color if required by local facility (clear, green, brown/amber)",
+            "Do NOT include ceramics, light bulbs, mirrors, window glass, or pyrex — these contaminate glass recycling",
+            "Handle broken glass carefully — wrap in newspaper before placing in collection",
+            "Deposit at designated glass collection points or hand to authorized collectors"
+          ],
+          "tip": "Never mix window glass, mirrors, or ceramics with container glass. They have different melting points and will contaminate the recycling batch."
+        }
+      ],
+      "industries": ["Beverage Industry", "Construction", "Art & Crafts", "Food Packaging", "Fiberglass Manufacturing"],
+      "uses": ["New glass bottles and containers", "Fiberglass insulation", "Road construction (glasphalt)", "Decorative tiles and countertops", "Sand substitution in construction", "Abrasive materials (sandblasting)"],
+      "environmentalFacts": {
+        "co2ReductionPercent": "Recycling glass reduces CO₂ emissions by 50% compared to virgin production",
+        "energySavedPercent": "30% less energy needed compared to making glass from raw materials",
+        "rawMaterialConservation": "Recycled glass (cullet) directly replaces sand, soda ash, and limestone",
+        "infiniteRecyclability": "Glass can be recycled infinite times with zero loss in quality or purity"
+      },
+      "marketPrice": {
+        "amount": "1-3",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Glass has lower scrap value compared to other recyclables. Whole bottles fetch more than broken glass. Color-sorted glass commands premium prices."
+      },
+      "commonItems": ["Beverage bottles", "Food jars (jam, pickle, sauce)", "Medicine bottles", "Wine and liquor bottles", "Cosmetic jars", "Laboratory glassware"],
+      "ecoTips": [
+        "One ton of recycled glass saves 1,300 pounds of sand, 410 pounds of soda ash, and 380 pounds of limestone",
+        "Glass in landfills takes over 1 million years to decompose — always recycle",
+        "Reuse glass jars for storage before recycling — reduces demand for new containers",
+        "Glass recycling uses 30% less energy than manufacturing from scratch"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016; Draft EPR Rules for Packaging 2024",
+        "keyProvisions": [
+          "Glass falls under 'dry waste' category under SWM Rules 2016 and must be segregated at source",
+          "Rule 4: Waste generators must segregate into wet, dry, and hazardous categories",
+          "Draft EPR Rules 2024: Producers of glass packaging will be required to take back and ensure recycling of glass packaging waste",
+          "Local municipal bodies must ensure collection infrastructure for dry waste including glass",
+          "Broken glass must be wrapped safely before disposal to prevent injury to waste workers"
+        ],
+        "citizenDuty": "Segregate glass as dry waste, rinse containers, wrap broken glass safely, and hand to authorized collectors",
+        "penalty": "Spot fines for littering; fines under local municipal bylaws for improper disposal",
+        "eprNotes": "Under draft EPR framework for packaging (anticipated 2026), glass packaging producers must ensure collection and recycling targets"
+      }
+    },
+    {
+      "type": "metal",
+      "aliases": ["aluminum", "aluminium", "steel", "tin", "can", "metal scrap", "iron", "copper"],
+      "description": "Aluminum cans, steel containers, tin cans, metal scraps, and ferrous/non-ferrous metal items. Metals are infinitely recyclable without quality degradation and have high scrap value in India.",
+      "recyclable": true,
+      "recyclingGrade": "A",
+      "decompositionTime": "200-500 years for aluminum; steel can take 50-100 years",
+      "recyclingMethods": [
+        {
+          "method": "Metal Smelting & Reprocessing",
+          "steps": [
+            "Empty and rinse metal containers to remove food residue",
+            "Crush cans to save space (optional — saves up to 80% storage volume)",
+            "Separate aluminum from steel if possible — use a magnet (steel is magnetic, aluminum is not)",
+            "Remove non-metal attachments like plastic labels, rubber seals, or paper wrappings",
+            "Do NOT include aerosol cans that are not fully empty — they can explode during processing",
+            "Segregate as dry waste and hand to authorized waste collectors or kabadiwalas",
+            "At recycling facility: metals are shredded, melted in furnaces at high temperatures, and reformed into new products"
+          ],
+          "tip": "A used aluminum can returns to the store shelf as a new can in just 60 days — one of the fastest recycling turnarounds of any material."
+        }
+      ],
+      "industries": ["Automotive Industry", "Construction & Infrastructure", "Electronics & Appliances", "Aerospace", "Packaging Industry", "Heavy Machinery"],
+      "uses": ["New beverage cans", "Car parts and engine components", "Building materials and structural beams", "Aircraft components", "Electrical wiring (copper)", "Bicycle frames", "Household appliances"],
+      "environmentalFacts": {
+        "energySavedAluminum": "Recycling aluminum saves 95% of the energy needed to make new aluminum from bauxite ore",
+        "co2ReductionPerTon": "Recycling 1 ton of steel prevents 2,500 pounds of iron ore, 1,400 pounds of coal, and 120 pounds of limestone from being mined",
+        "waterSaved": "Recycling metal uses 40% less water than primary production",
+        "infiniteRecyclability": "75% of all aluminum ever produced is still in use today — metal never degrades through recycling"
+      },
+      "marketPrice": {
+        "amount": "25-180",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Prices vary significantly by metal type: Aluminum cans ₹80-120/kg, Steel/Iron ₹25-40/kg, Copper ₹400-600/kg, Brass ₹250-350/kg. Clean, sorted metal fetches higher prices."
+      },
+      "commonItems": ["Soft drink and beer cans", "Food tins (canned vegetables, fruit)", "Aluminum foil and trays", "Steel utensils", "Metal bottle caps", "Wire and cables", "Old car parts", "Nails and screws"],
+      "ecoTips": [
+        "Aluminum recycling saves 95% energy — always recycle aluminum cans and foil",
+        "Metal has the highest scrap value among common recyclables — sell to local kabadiwalas",
+        "Under the Hazardous Waste Rules 2016, metal scrap is regulated for proper handling",
+        "One recycled aluminum can saves enough energy to run a TV for 3 hours"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Hazardous and Other Wastes (Management & Transboundary Movement) Rules, 2016; Second Amendment Rules, 2024",
+        "keyProvisions": [
+          "Metal scrap (ferrous and non-ferrous) is classified under 'Other Wastes' in Schedule III of the Hazardous Waste Rules 2016",
+          "Hazardous Waste Rules 2016 Amendment 2024: Non-ferrous metal producers must incorporate minimum recycled content — 5% from FY 2027-28, increasing to 10% (aluminum), 20% (copper), 25% (zinc) by FY 2030-31",
+          "EPR framework introduced for non-ferrous metals — producers must register with CPCB and meet recycling obligations",
+          "Steel Scrap Recycling Policy 2019: Framework for establishing metal scrapping centers across India",
+          "Vehicle Scrapping Policy 2021 (MoRTH): Registered Vehicle Scrapping Facilities for end-of-life vehicles"
+        ],
+        "citizenDuty": "Segregate metal as dry waste, sell to authorized scrap dealers or kabadiwalas, do not mix with hazardous waste",
+        "penalty": "Non-compliance with Hazardous Waste Rules: Environmental compensation under 'Polluter Pays' principle; CPCB may impose separate penalties on industrial non-compliance",
+        "eprNotes": "From FY 2027-28, all non-ferrous metal producers must meet minimum recycled content targets under the 2024 amendment, enforced through EPR certificates issued by CPCB"
+      }
+    },
+    {
+      "type": "paper",
+      "aliases": ["newspaper", "magazine", "office paper", "paper bag", "notebook", "printed paper"],
+      "description": "Newspapers, magazines, office paper, notebooks, paper bags, and similar paper products. Paper is one of the most widely recycled materials and falls under dry waste category.",
+      "recyclable": true,
+      "recyclingGrade": "A-",
+      "decompositionTime": "2-6 weeks for regular paper; coated/laminated paper takes much longer",
+      "recyclingMethods": [
+        {
+          "method": "Paper Pulping & Reprocessing",
+          "steps": [
+            "Remove any plastic windows (from envelopes), plastic coatings, or metal bindings",
+            "Keep paper clean and dry — wet, greasy, or food-contaminated paper cannot be recycled",
+            "Shred confidential documents — shredded paper is still recyclable",
+            "Bundle newspapers and magazines separately if possible",
+            "Do NOT include tissues, paper towels, wax paper, or heavily printed thermal receipts in paper recycling",
+            "Segregate as dry waste and hand to authorized collectors or sell to kabadiwalas",
+            "At recycling facility: paper is pulped with water, de-inked, cleaned of impurities, and pressed into new paper sheets"
+          ],
+          "tip": "Paper can be recycled 5-7 times before fibers become too short. After that, it can be composted as biodegradable waste."
+        },
+        {
+          "method": "Composting (for non-recyclable paper)",
+          "steps": [
+            "Shred tissue paper, paper towels, greasy paper, and other non-recyclable paper products",
+            "Add to compost bin as 'brown material' (carbon source)",
+            "Mix with green/wet waste for balanced composting"
+          ],
+          "tip": "Tissues, paper towels, and food-stained paper should go to composting, not paper recycling."
+        }
+      ],
+      "industries": ["Publishing & Printing", "Packaging Industry", "Tissue & Hygiene Products", "Stationery Manufacturing"],
+      "uses": ["Recycled paper and newsprint", "Tissue products (toilet paper, paper towels)", "Egg cartons", "Paper bags", "Cardboard boxes", "Recycled notebooks and stationery"],
+      "environmentalFacts": {
+        "treesSavedPerTon": "17 trees saved per ton of paper recycled",
+        "waterSavedPerTon": "7,000 gallons of water saved per ton",
+        "oilSavedPerTon": "380 gallons of oil saved per ton",
+        "landfillReduction": "3.3 cubic yards of landfill space saved per ton",
+        "energySaved": "70% less energy than manufacturing virgin paper"
+      },
+      "marketPrice": {
+        "amount": "7-16",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Newspaper ₹7-10/kg, White office paper (sorted) ₹12-16/kg, Mixed paper ₹5-8/kg. Clean, dry paper commands higher prices."
+      },
+      "commonItems": ["Newspapers", "Magazines", "Office printer paper", "Notebooks and textbooks", "Junk mail and envelopes", "Paper bags", "Catalogs and brochures", "Greeting cards"],
+      "ecoTips": [
+        "Use both sides of paper before recycling to maximize its lifecycle",
+        "One ton of recycled paper saves 17 trees, 7,000 gallons of water, and 380 gallons of oil",
+        "Keep paper recycling dry — moisture is the #1 contaminant",
+        "Digital alternatives reduce paper consumption — go paperless where possible"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016; Hazardous Waste Rules 2016 (waste paper in Schedule III under 'Other Wastes')",
+        "keyProvisions": [
+          "Paper is classified as dry waste under SWM Rules 2016 three-category segregation system",
+          "Rule 4: Every waste generator must segregate paper into the dry waste bin",
+          "Waste paper is listed in Schedule III of Hazardous and Other Wastes Rules 2016 as 'Other Waste' (B3020) — regulated for transboundary movement",
+          "Import of waste paper for recycling is permitted under the rules with proper authorization",
+          "Local municipalities must ensure door-to-door collection of segregated dry waste including paper"
+        ],
+        "citizenDuty": "Segregate paper as dry waste, keep clean and dry, shred confidential documents, hand to authorized collectors or kabadiwalas",
+        "penalty": "Spot fines for littering; penalties under municipal bylaws for non-segregation",
+        "eprNotes": "Paper packaging will come under EPR framework once the draft EPR Rules for Packaging 2024 are finalized"
+      }
+    },
+    {
+      "type": "plastic",
+      "aliases": ["plastic bottle", "PET", "HDPE", "polythene", "polybag", "plastic container", "wrapper", "sachet"],
+      "description": "Plastic bottles, containers, bags, wrappers, and packaging materials. Only 9% of all plastic ever produced has been recycled globally. India has strong plastic waste management rules with single-use plastic bans.",
+      "recyclable": true,
+      "recyclingGrade": "B+",
+      "decompositionTime": "450-1000+ years depending on plastic type",
+      "recyclingMethods": [
+        {
+          "method": "Mechanical Recycling",
+          "steps": [
+            "Check the recycling symbol (1-7) on the plastic item — not all plastics are equally recyclable",
+            "Rinse containers to remove food residue",
+            "Remove caps and labels where possible (caps are often different plastic type)",
+            "Crush bottles and containers to save space",
+            "Do NOT include styrofoam (expanded polystyrene), plastic-coated paper cups, multi-layer packaging, or thermosetting plastics",
+            "Segregate as dry waste and hand to authorized waste collectors",
+            "At recycling facility: plastics are sorted by resin type, shredded, washed, melted, and pelletized into raw material"
+          ],
+          "tip": "PET (Type 1) and HDPE (Type 2) are the most easily recycled plastics. Multi-layer plastic packaging (like chip packets) is extremely difficult to recycle."
+        },
+        {
+          "method": "Co-processing in Cement Kilns",
+          "steps": [
+            "Non-recyclable plastic waste can be used as alternative fuel in cement kilns",
+            "This is recognized by CPCB as an approved disposal method for plastic waste",
+            "Cement kilns operate at temperatures >1400°C, ensuring complete destruction of plastic"
+          ],
+          "tip": "Under Plastic Waste Management Rules 2016, non-recyclable plastic can be used for road construction or energy recovery in cement kilns."
+        }
+      ],
+      "industries": ["Textile Industry (polyester)", "Construction", "Automotive", "Furniture Manufacturing", "Road Construction"],
+      "uses": ["Polyester fabric and clothing", "Plastic lumber and furniture", "New containers and bottles", "Playground equipment", "Road construction (plastic tar roads)", "Carry bags (within legal limits)"],
+      "environmentalFacts": {
+        "oceanPollution": "8 million tons of plastic enter oceans every year globally",
+        "recyclingRate": "Only 9% of all plastic ever produced has been recycled",
+        "energySaved": "Recycling 1 ton of plastic saves 5,774 kWh of energy",
+        "oilSaved": "Recycling 1 ton of plastic conserves 16.3 barrels of oil",
+        "decomposition": "A single plastic bottle takes 450 years to decompose in landfill"
+      },
+      "marketPrice": {
+        "amount": "5-25",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "PET bottles ₹12-25/kg, HDPE containers ₹10-20/kg, Mixed plastic ₹5-10/kg. Clean, sorted single-type plastic fetches highest prices."
+      },
+      "commonItems": ["Water and soft drink bottles (PET)", "Milk jugs (HDPE)", "Shampoo and detergent bottles", "Plastic bags and carry bags", "Food containers", "Plastic chairs and furniture", "Packaging wrappers"],
+      "ecoTips": [
+        "Refuse single-use plastics whenever possible — they are banned under Indian law",
+        "Carry reusable bags, bottles, and containers",
+        "Only 9% of plastic ever made has been recycled — reduce consumption is the best strategy",
+        "Check the plastic type number (1-7) before recycling — not all plastics can be recycled equally"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Plastic Waste Management Rules, 2016 (MoEFCC), amended 2018, 2021, 2022, and 2024",
+        "keyProvisions": [
+          "Single-Use Plastic Ban (effective July 1, 2022): Banned items include plastic plates, cups, straws, cutlery, stirrers, earbuds with plastic sticks, polystyrene for decoration, plastic candy/ice-cream sticks, PVC banners <100 microns, and plastic flags",
+          "Carry bag minimum thickness: 120 microns (amended from 50 → 75 → 120 microns)",
+          "Extended Producer Responsibility (EPR): All producers, importers, and brand owners must register on CPCB portal and meet collection, recycling, and reuse targets",
+          "Plastic Waste Management (Amendment) Rules, 2024: Biodegradable plastics require CPCB certification; stricter criteria ensuring no microplastic residue",
+          "2024 Amendment: MSMEs exempted from EPR — responsibility shifted to raw material suppliers",
+          "Non-recyclable plastic can be used for road construction or co-processing in cement kilns as per CPCB guidelines",
+          "From July 2025: Digital traceability (QR codes/barcodes) mandatory on plastic packaging",
+          "Local bodies must prevent stocking, distribution, sale, and use of banned single-use plastic items"
+        ],
+        "citizenDuty": "Do not use banned single-use plastics; segregate plastic as dry waste; hand to authorized collectors; support EPR by returning packaging to producers",
+        "penalty": "Fine of ₹500-₹25,000 for use/sale of banned single-use plastics under local municipal bylaws; Environmental compensation under 'Polluter Pays' principle for EPR non-compliance by producers",
+        "eprNotes": "Producers must register on CPCB EPR portal (eprplasticwaste.cpcb.gov.in) and meet annual targets for collection, recycling, reuse, and use of recycled content. EPR certificates traded between producers and recyclers."
+      }
+    },
+    {
+      "type": "trash",
+      "aliases": ["mixed waste", "general waste", "residual waste", "non-recyclable", "landfill waste"],
+      "description": "Mixed or non-recyclable waste that doesn't fit into specific recycling categories. Includes contaminated materials, composite products, and items that cannot be economically recycled.",
+      "recyclable": false,
+      "recyclingGrade": "D",
+      "decompositionTime": "Varies widely — some synthetic materials may never decompose",
+      "recyclingMethods": [
+        {
+          "method": "Proper Disposal",
+          "steps": [
+            "Identify if any components can be separated for recycling before discarding the entire item",
+            "Multi-layer packaging, contaminated recyclables, and composite materials typically go to residual waste",
+            "Place in the appropriate bin — usually the general/residual waste bin",
+            "Some non-recyclable waste can be sent to waste-to-energy plants",
+            "Under SWM Rules 2016, municipalities must ensure scientific disposal of residual waste at sanitary landfills",
+            "Never burn waste in the open — it creates toxic fumes and is illegal under SWM Rules"
+          ],
+          "tip": "Before treating anything as trash, check if components can be separated — a drink carton has paper, plastic, and aluminum that can be recycled if separated."
+        }
+      ],
+      "industries": ["Waste-to-Energy Plants", "Cement Industry (co-processing)"],
+      "uses": ["Refuse-derived fuel (RDF)", "Waste-to-energy incineration", "Engineered landfill cover material"],
+      "environmentalFacts": {
+        "landfillImpact": "India generates approximately 62 million tons of solid waste annually; only 43 million tons are collected, and about 12 million tons are treated",
+        "methaneEmissions": "Organic waste in landfills produces methane, a greenhouse gas 28 times more potent than CO₂",
+        "wasteToEnergy": "India has 8 operational waste-to-energy plants processing municipal solid waste"
+      },
+      "marketPrice": {
+        "amount": "0",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "General trash has no market value. However, proper segregation can recover valuable recyclables from mixed waste. RDF produced from non-recyclable waste has some industrial value."
+      },
+      "commonItems": ["Contaminated food packaging", "Broken ceramics", "Used diapers and sanitary products", "Soiled tissues", "Composite packaging (multi-layer)", "Broken household items", "Cigarette butts"],
+      "ecoTips": [
+        "The best way to reduce trash is to reduce consumption and choose products with recyclable packaging",
+        "Segregation at source can recover 60-70% of materials from what people typically call 'trash'",
+        "Under SWM Rules 2016, open burning of waste is strictly prohibited",
+        "Used sanitary products must be wrapped and placed in domestic hazardous waste bin, NOT the dry waste bin"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016; SWM Rules 2026 (effective April 1, 2026)",
+        "keyProvisions": [
+          "Rule 4(2) of SWM Rules 2016: Strictly prohibits burning, burying, or throwing solid waste in open public areas",
+          "Rule 15: Local authorities must ensure scientific processing and disposal of residual waste",
+          "Sanitary waste (diapers, sanitary napkins) must be wrapped securely and placed in domestic hazardous waste bin",
+          "SWM Rules 2026 (superseding 2016 rules): Introduces environmental compensation under 'Polluter Pays' principle for non-compliance",
+          "Industrial units within 100 km of RDF plants must replace at least 5% of fuel with refuse-derived fuel",
+          "Municipalities must establish and operate sanitary landfills for non-recyclable, non-biodegradable waste"
+        ],
+        "citizenDuty": "Minimize waste generation; segregate waste properly; do NOT burn or dump waste openly; pay user fees for waste management services",
+        "penalty": "Spot fines ₹200-₹500 for littering; up to ₹1,00,000 for illegal dumping; environmental compensation under Polluter Pays principle in SWM Rules 2026"
+      }
+    },
+    {
+      "type": "e-waste",
+      "aliases": ["electronic waste", "computer", "phone", "mobile", "laptop", "charger", "cable", "circuit board", "PCB", "television", "TV", "monitor", "keyboard", "mouse", "printer", "headphones", "earphones", "speaker"],
+      "description": "Discarded electronic and electrical equipment including computers, phones, TVs, appliances, and accessories. E-waste contains valuable recoverable metals (gold, copper, aluminum) but also hazardous substances (lead, mercury, cadmium).",
+      "recyclable": true,
+      "recyclingGrade": "B",
+      "decompositionTime": "Electronics never decompose naturally — hazardous materials leach into soil and groundwater",
+      "recyclingMethods": [
+        {
+          "method": "Authorized E-Waste Recycling",
+          "steps": [
+            "Do NOT attempt to dismantle electronics yourself — they contain hazardous substances",
+            "Back up and wipe all personal data from devices before disposal",
+            "Check with the manufacturer or brand for take-back programs (mandatory under E-Waste Rules 2022)",
+            "Deposit e-waste at authorized collection centers — check CPCB's registered list",
+            "Major brands like Apple, Samsung, Dell, HP have authorized collection points in India",
+            "At authorized facility: devices are dismantled, hazardous components separated, and valuable metals (gold, copper, aluminum, iron) recovered"
+          ],
+          "tip": "Under E-Waste Management Rules 2022, producers are required to take back end-of-life electronics. Check the brand's website for collection points near you."
+        }
+      ],
+      "industries": ["Metal Recovery & Refining", "Precious Metal Extraction", "Component Refurbishment", "Raw Material Supply"],
+      "uses": ["Recovered gold, copper, aluminum, and iron", "Refurbished electronics", "Recycled plastics from housings", "Recovered rare earth elements"],
+      "environmentalFacts": {
+        "globalVolume": "India generates approximately 3.2 million tons of e-waste annually — 3rd largest generator globally",
+        "hazardousSubstances": "E-waste contains lead, mercury, cadmium, and brominated flame retardants that contaminate soil and water",
+        "valuableMetals": "One ton of circuit boards contains 40-800 times more gold than one ton of gold ore",
+        "recyclingRate": "Less than 20% of global e-waste is formally recycled"
+      },
+      "marketPrice": {
+        "amount": "10-50",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Scrap electronics value varies enormously — old phones ₹10-100/piece, computer components ₹20-50/kg, circuit boards ₹200-500/kg (for precious metal content). Only authorized recyclers should process e-waste."
+      },
+      "commonItems": ["Smartphones and tablets", "Laptops and desktop computers", "Televisions and monitors", "Chargers and cables", "Keyboards and mice", "Printers and scanners", "Headphones and speakers", "Refrigerators and washing machines", "Microwave ovens", "Batteries (covered separately)"],
+      "ecoTips": [
+        "Extend device lifespan through repairs before replacing",
+        "Donate working electronics instead of discarding",
+        "Never burn or dump electronics — hazardous chemicals contaminate soil and water",
+        "Use authorized e-waste collection points — informal recycling exposes workers to toxic materials"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "E-Waste (Management) Rules, 2022 (effective April 1, 2023); Amendment Rules 2024",
+        "keyProvisions": [
+          "Covers 100+ categories of electrical and electronic equipment including solar PV panels",
+          "Extended Producer Responsibility (EPR): Producers must achieve recycling targets — 60% of EEE placed on market by FY 2023-24, increasing to 80% by FY 2027-28",
+          "All producers, manufacturers, refurbishers, dismantlers, and recyclers must register on CPCB online portal",
+          "EPR certificates issued to registered recyclers — tradeable with producers to meet targets",
+          "Environmental compensation on 'Polluter Pays' principle for non-compliance",
+          "Restriction on hazardous substances (lead, mercury, cadmium) in new electronic equipment",
+          "2024 Amendment: Recycling capacity based on installed plant and machinery, up to 20 hours/day; detailed material flow records required",
+          "Recognized recycled materials: Gold (Au), Copper (Cu), Aluminum (Al), Iron (Fe)"
+        ],
+        "citizenDuty": "Return end-of-life electronics to authorized collection centers or producer take-back programs; do NOT dispose of e-waste with regular household waste",
+        "penalty": "Environmental compensation for non-compliance with E-Waste Rules; CPCB can cancel registration and impose penalties on unauthorized recyclers",
+        "eprNotes": "Check CPCB EPR portal (eprewastecpcb.in) for list of registered e-waste recyclers and authorized collection centers"
+      }
+    },
+    {
+      "type": "battery",
+      "aliases": ["batteries", "cell", "lithium battery", "lead acid battery", "AA battery", "rechargeable battery", "car battery", "UPS battery", "inverter battery"],
+      "description": "All types of batteries including dry cell (AA/AAA), lithium-ion, lead-acid, and rechargeable batteries. Batteries contain hazardous chemicals and heavy metals that require specialized recycling.",
+      "recyclable": true,
+      "recyclingGrade": "B+",
+      "decompositionTime": "100+ years — batteries leak toxic chemicals into soil and groundwater as they corrode",
+      "recyclingMethods": [
+        {
+          "method": "Authorized Battery Recycling",
+          "steps": [
+            "Do NOT throw batteries in regular waste bins — they are classified as hazardous waste",
+            "Store used batteries in a dry, cool place away from heat and moisture",
+            "Cover battery terminals with tape to prevent short circuits during storage",
+            "Return batteries to authorized collection points, dealers, or manufacturer take-back programs",
+            "Lead-acid batteries (car/UPS/inverter): Return to the dealer or manufacturer",
+            "Lithium-ion batteries (phones/laptops): Return to electronics brands or authorized e-waste recyclers",
+            "Never attempt to open, crush, incinerate, or dump batteries"
+          ],
+          "tip": "Under Battery Waste Management Rules 2022, producers and manufacturers must take back used batteries. Check with your battery brand for collection points."
+        }
+      ],
+      "industries": ["Battery Manufacturing", "Lead Smelting & Recovery", "Lithium Recovery", "Electric Vehicle Industry"],
+      "uses": ["Recovered lead for new batteries (lead-acid)", "Recovered lithium, cobalt, nickel for new lithium-ion batteries", "Recovered zinc, manganese from alkaline batteries", "Recycled plastic from battery casings"],
+      "environmentalFacts": {
+        "leadContamination": "One lead-acid battery can contaminate 167,000 liters of water",
+        "lithiumRecovery": "Recycling lithium-ion batteries recovers 95% of materials — critical for EV industry",
+        "toxicSubstances": "Batteries contain lead, cadmium, mercury, lithium, and acid that are highly toxic"
+      },
+      "marketPrice": {
+        "amount": "20-60",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Lead-acid batteries ₹40-60/kg (high lead recovery value), Lithium-ion batteries ₹20-40/kg. Never sell to unauthorized dealers."
+      },
+      "commonItems": ["AA and AAA dry cells", "Smartphone and laptop batteries", "Car and motorcycle batteries", "UPS and inverter batteries", "Button cells (watches, hearing aids)", "Power bank batteries", "EV batteries"],
+      "ecoTips": [
+        "Use rechargeable batteries to reduce waste",
+        "Never dispose batteries with regular household trash",
+        "Tape battery terminals before storing for recycling to prevent fire hazards",
+        "One lead-acid battery can contaminate 167,000 liters of water if improperly disposed"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Battery Waste Management Rules, 2022 (MoEFCC)",
+        "keyProvisions": [
+          "Extended Producer Responsibility (EPR): Producers must collect and ensure recycling of waste batteries",
+          "Prohibition: Waste batteries must NOT be sent for incineration or landfilling",
+          "All producers, importers, and recyclers must register on CPCB portal",
+          "Collection targets mandated for producers — phased increase over time",
+          "Applies to all battery types: lead-acid, lithium-ion, nickel-cadmium, alkaline, zinc-carbon",
+          "Dealers and bulk consumers must return used batteries to producers or authorized collection centers"
+        ],
+        "citizenDuty": "Return waste batteries to dealers, producers, or authorized collection centers; do not mix with regular household waste; do not burn or bury batteries",
+        "penalty": "Environmental compensation under 'Polluter Pays' principle for non-compliance by producers; penalties for unauthorized recycling operations",
+        "eprNotes": "Producers must set up collection systems and achieve annual collection and recycling targets set by CPCB"
+      }
+    },
+    {
+      "type": "textile",
+      "aliases": ["cloth", "fabric", "clothing", "garment", "cotton", "jeans", "shirt", "carpet", "curtain", "towel", "bedsheet"],
+      "description": "Textiles including clothing, fabrics, curtains, towels, bedsheets, and carpets. India's textile industry generates significant waste, and old textiles can be recycled into new products or donated.",
+      "recyclable": true,
+      "recyclingGrade": "B",
+      "decompositionTime": "Cotton: 1-5 months; Synthetic fabrics: 20-200 years",
+      "recyclingMethods": [
+        {
+          "method": "Textile Recycling & Reuse",
+          "steps": [
+            "Check if clothing/textiles are still wearable — donate to charities or NGOs first",
+            "Clean and dry textiles before recycling",
+            "Separate by material type if possible (cotton, polyester, blends)",
+            "Old cotton clothes can be used as industrial wiping cloths (jhadi/jhaduw)",
+            "Panipat (Haryana) is India's largest textile recycling hub — processes discarded garments into blankets (kambal) and shoddy yarn",
+            "Damaged textiles can be shredded and used as filling material or insulation",
+            "Hand over to kabadiwalas, textile recyclers, or textile collection drives"
+          ],
+          "tip": "India's Panipat is known as the 'Cast-Off Capital' — it recycles imported second-hand clothing into affordable blankets and fabrics."
+        }
+      ],
+      "industries": ["Textile recycling (Panipat hub)", "Industrial wiping cloth manufacturing", "Insulation materials", "Automobile industry (sound dampening)"],
+      "uses": ["Recycled yarn (shoddy)", "Blankets (kambal)", "Industrial wiping cloths", "Insulation material", "Stuffing for mattresses and cushions", "Paper production (from cotton rags)"],
+      "environmentalFacts": {
+        "waterUsage": "Producing 1 kg of cotton fabric requires 10,000-20,000 liters of water",
+        "wasteGenerated": "India generates approximately 7.5 million tons of textile waste annually",
+        "carbonFootprint": "The fashion industry is responsible for 10% of global carbon emissions"
+      },
+      "marketPrice": {
+        "amount": "5-20",
+        "unit": "per kg",
+        "currency": "INR",
+        "notes": "Cotton waste ₹10-20/kg, Mixed fabrics ₹5-10/kg, Denim waste ₹8-15/kg. Sorted, clean textiles fetch higher rates."
+      },
+      "commonItems": ["Old clothes and garments", "Torn bedsheets and towels", "Curtains and drapes", "Old carpets", "Bags (cloth/jute)", "Denim jeans", "Socks and undergarments"],
+      "ecoTips": [
+        "Donate wearable clothes to charities — extend the lifecycle before recycling",
+        "Buy quality over quantity — fast fashion is a major environmental problem",
+        "Repair clothes instead of discarding — mending extends garment life",
+        "India's Panipat recycling industry processes millions of tons of old textiles into useful products"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016; Extended Producer Responsibility guidelines (under development)",
+        "keyProvisions": [
+          "Textile waste falls under dry waste category in SWM Rules 2016",
+          "MoEFCC is developing EPR framework specifically for textile industry",
+          "Swachh Bharat Mission encourages donation and reuse of textiles",
+          "National Resource Efficiency Policy promotes circular economy in textiles",
+          "BIS standards for recycled fibers in textile products"
+        ],
+        "citizenDuty": "Donate wearable textiles; segregate unusable textiles as dry waste; hand to authorized recyclers or kabadiwalas",
+        "penalty": "Under SWM Rules 2016 — spot fines for improper disposal of waste",
+        "eprNotes": "EPR framework for textiles is under development by MoEFCC — expected to mandate producers to take responsibility for end-of-life garments"
+      }
+    },
+    {
+      "type": "organic",
+      "aliases": ["food waste", "kitchen waste", "vegetable waste", "fruit peel", "leftover food", "garden waste", "yard waste", "leaves", "compostable"],
+      "description": "Biodegradable organic waste including food scraps, vegetable peels, fruit peels, leftover food, garden waste, and yard trimmings. Organic waste constitutes 50-60% of India's municipal solid waste.",
+      "recyclable": false,
+      "recyclingGrade": "A (for composting)",
+      "decompositionTime": "2 weeks to 6 months depending on conditions",
+      "recyclingMethods": [
+        {
+          "method": "Composting",
+          "steps": [
+            "Segregate organic waste at source — separate from dry and hazardous waste as per SWM Rules 2016",
+            "Use a home composting bin — layer green waste (food scraps) with brown waste (dry leaves, cardboard)",
+            "Avoid adding meat, dairy, oils, and cooked food with spices in home composting (they attract pests)",
+            "Turn the compost pile regularly for aeration",
+            "Compost is ready in 45-90 days — it becomes dark, crumbly, and earthy-smelling",
+            "Use compost for gardening, potted plants, or community gardens"
+          ],
+          "tip": "Under SWM Rules 2016, bulk waste generators (>100 kg/day) MUST process biodegradable waste through composting or bio-methanation on-site."
+        },
+        {
+          "method": "Bio-methanation (Biogas)",
+          "steps": [
+            "Organic waste is fed into a biogas digester (anaerobic digestion)",
+            "Bacteria break down waste in oxygen-free environment producing methane (biogas)",
+            "Biogas can be used for cooking fuel or electricity generation",
+            "Residual slurry is nutrient-rich fertilizer"
+          ],
+          "tip": "Community-level biogas plants are promoted under Swachh Bharat Mission and MNRE (Ministry of New and Renewable Energy) schemes."
+        }
+      ],
+      "industries": ["Organic Fertilizer/Compost", "Biogas Production", "Agriculture", "Community Energy"],
+      "uses": ["Compost for agriculture and gardens", "Biogas for cooking and electricity", "Vermicompost (using earthworms)", "Organic fertilizer"],
+      "environmentalFacts": {
+        "compositionInMSW": "Organic waste constitutes 50-60% of India's total municipal solid waste",
+        "methaneEmissions": "Food waste in landfills produces methane — 28 times more potent than CO₂ as a greenhouse gas",
+        "compostBenefit": "Composting returns nutrients to soil and reduces need for chemical fertilizers"
+      },
+      "marketPrice": {
+        "amount": "0-5",
+        "unit": "per kg (as compost)",
+        "currency": "INR",
+        "notes": "Raw organic waste has no market value. Processed compost sells for ₹3-5/kg. Vermicompost fetches ₹5-10/kg. Biogas has energy value."
+      },
+      "commonItems": ["Vegetable and fruit peels", "Leftover food and rice", "Tea leaves and coffee grounds", "Eggshells", "Garden trimmings and dry leaves", "Spoiled flowers"],
+      "ecoTips": [
+        "Compost your kitchen waste — it reduces landfill waste by 50-60%",
+        "A simple composting bin can convert kitchen waste into garden-ready compost in 45-90 days",
+        "Community biogas plants can power cooking fuel needs from organic waste",
+        "Avoid wasting food — India wastes nearly 68.8 million tons of food annually"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Solid Waste Management Rules, 2016; Swachh Bharat Mission Guidelines",
+        "keyProvisions": [
+          "Rule 4: Organic waste must be segregated as 'wet waste' (biodegradable) in the three-bin system",
+          "Rule 4(6): Bulk waste generators (hotels, restaurants, institutions generating >100 kg/day or occupying >5,000 sq ft) MUST process biodegradable waste on-site through composting or bio-methanation",
+          "Municipalities must promote composting and bio-methanation as primary processing methods",
+          "Sale and use of compost products must follow Fertiliser Control Order standards",
+          "SWM Rules promote decentralized composting at ward/community level",
+          "Swachh Bharat Mission provides financial support for composting infrastructure"
+        ],
+        "citizenDuty": "Segregate wet (organic) waste from dry and hazardous waste; compost at home where possible; hand segregated wet waste to authorized collectors",
+        "penalty": "Spot fines for non-segregation; bulk generator penalties for not processing biodegradable waste on-site",
+        "eprNotes": "Composting and bio-methanation are the preferred methods under SWM Rules 2016. Sending biodegradable waste to landfills is discouraged."
+      }
+    },
+    {
+      "type": "hazardous",
+      "aliases": ["chemical waste", "paint", "pesticide", "cleaning agent", "medicine", "pharmaceutical", "medical waste", "oil", "solvent", "aerosol", "insecticide"],
+      "description": "Hazardous domestic waste including paints, chemicals, pesticides, cleaning agents, expired medicines, used oil, solvents, and aerosol cans. These require special handling to prevent environmental contamination.",
+      "recyclable": false,
+      "recyclingGrade": "F (requires specialized disposal)",
+      "decompositionTime": "Many hazardous chemicals persist indefinitely in the environment",
+      "recyclingMethods": [
+        {
+          "method": "Authorized Hazardous Waste Disposal",
+          "steps": [
+            "Identify the type of hazardous waste — check product labels for hazard symbols",
+            "Store in original containers with labels intact — do NOT mix different chemicals",
+            "Keep away from heat, water, and children",
+            "Never pour chemicals down drains, toilets, or into regular waste bins",
+            "Never burn hazardous waste — it releases toxic fumes",
+            "Contact local municipal authority for designated hazardous waste collection days/points",
+            "Hand over to authorized Treatment, Storage, and Disposal Facilities (TSDFs)",
+            "For expired medicines: return to pharmacies or hospital collection programs"
+          ],
+          "tip": "Under SWM Rules 2016, domestic hazardous waste must be stored separately in a third bin (red bin) and handed to authorized collectors."
+        }
+      ],
+      "industries": ["Waste Treatment Facilities (TSDFs)", "Cement Kilns (co-processing)", "Specialized Incineration"],
+      "uses": ["Chemical neutralization and safe disposal", "Energy recovery through incineration", "Solvent recovery and reuse (industrial)", "Metal recovery from chemical catalysts"],
+      "environmentalFacts": {
+        "groundwaterRisk": "Improper disposal of hazardous waste contaminates groundwater — affecting drinking water for millions",
+        "healthRisk": "Exposure to hazardous chemicals causes cancer, neurological damage, and organ failure",
+        "soilContamination": "Chemical waste can render agricultural land infertile for decades"
+      },
+      "marketPrice": {
+        "amount": "0",
+        "unit": "N/A",
+        "currency": "INR",
+        "notes": "Hazardous waste has no positive market value. Disposal typically incurs a cost. Authorized TSDFs charge processing fees."
+      },
+      "commonItems": ["Paint and paint thinners", "Pesticides and insecticides", "Cleaning agents (bleach, drain cleaners)", "Expired medicines", "Used motor oil", "Nail polish and nail polish remover", "CFL bulbs (contain mercury)", "Aerosol cans (non-empty)", "Old thermometers (mercury)"],
+      "ecoTips": [
+        "Always store hazardous waste separately from regular waste",
+        "Never pour chemicals into drains or water bodies",
+        "Return expired medicines to pharmacies — many run take-back programs",
+        "Switch to eco-friendly cleaning products to reduce hazardous waste generation"
+      ],
+      "governmentRegulations": {
+        "applicableRules": "Hazardous and Other Wastes (Management & Transboundary Movement) Rules, 2016; SWM Rules 2016 (domestic hazardous waste)",
+        "keyProvisions": [
+          "Domestic hazardous waste (insect repellents, cleaning agents, batteries, CFL bulbs, expired medicines) must be stored in a separate bin (third category under SWM Rules 2016)",
+          "Hazardous Waste Rules 2016: All facilities handling hazardous waste must obtain authorization from SPCB (State Pollution Control Board)",
+          "Priority hierarchy: Prevention → Minimization → Reuse → Recycling → Recovery → Co-processing → Safe Disposal",
+          "Import of hazardous waste for disposal is prohibited; import for recycling requires authorization",
+          "TSDFs (Treatment, Storage, and Disposal Facilities) must be authorized and comply with CPCB standards"
+        ],
+        "citizenDuty": "Segregate domestic hazardous waste in a separate bin; never mix with regular waste; hand to authorized collectors during designated collection events",
+        "penalty": "Criminal liability under sections of Environment Protection Act, 1986; fines ranging from ₹1,00,000 to ₹5,00,000; imprisonment up to 5 years for serious violations",
+        "eprNotes": "Producers of products containing hazardous substances are increasingly being brought under EPR. Battery Waste Management Rules 2022 is an example of this approach."
+      }
+    }
+  ],
+  "generalRecyclingGuidelines": {
+    "description": "Cross-cutting recycling guidelines applicable to all waste categories, and fallback information for unknown or unlisted waste types.",
+    "threeRs": {
+      "reduce": "Minimize waste generation by avoiding single-use products and buying only what you need",
+      "reuse": "Find new purposes for items before discarding — glass jars for storage, old clothes as cleaning rags",
+      "recycle": "Segregate waste properly and ensure recyclable materials reach authorized recycling channels"
+    },
+    "segregationBins": {
+      "description": "Under SWM Rules 2016, all waste must be segregated at source into three categories",
+      "greenBin": "Wet/Biodegradable waste — food scraps, vegetable peels, garden waste",
+      "blueBin": "Dry waste — paper, plastic, metal, glass, cardboard, textiles",
+      "redBin": "Domestic hazardous waste — batteries, CFL bulbs, expired medicines, cleaning chemicals, insect repellents, sanitary waste"
+    },
+    "swachhBharatGuidelines": [
+      "Every citizen has a duty to segregate waste at source",
+      "Do not litter in public places — spot fines applicable",
+      "Support your local waste collection system by separating waste daily",
+      "Encourage composting of biodegradable waste in your household or community",
+      "Use cloth bags instead of plastic bags",
+      "Report illegal waste dumping to your local municipal authority"
+    ],
+    "unknownWasteGuidelines": {
+      "description": "Guidelines for handling waste that doesn't match any known category",
+      "steps": [
+        "Check if the item has a material identification label or recycling symbol",
+        "Try to identify the primary material — is it paper, plastic, metal, glass, organic, or electronic?",
+        "When in doubt, contact your local municipal waste management authority",
+        "Many local kabadiwalas (scrap dealers) can identify recyclable materials",
+        "If unsure whether an item is hazardous, store separately and consult a waste management expert",
+        "Multi-material items (like Tetra Pak cartons) should be checked for local recycling infrastructure"
+      ]
+    },
+    "importantContacts": {
+      "CPCB": "Central Pollution Control Board — cpcb.nic.in",
+      "SwachhBharat": "Swachh Bharat Mission — swachhbharatmission.gov.in",
+      "EPR_Plastic": "EPR for Plastic Waste — eprplasticwaste.cpcb.gov.in",
+      "EPR_EWaste": "EPR for E-Waste — eprewastecpcb.in"
+    }
+  }
+}
