@@ -101,32 +101,36 @@ const Home = () => {
       <Navbar />
 
       {/* Hero / Search */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 py-12 md:py-20">
-        <div className="container">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-[hsl(35,28%,88%)]">
+        <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Buy &amp; Sell <span className="gradient-text">Recyclable</span> Waste
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 text-primary text-xs font-semibold mb-6 animate-fade-in shadow-sm">
+              <span className="dot-indicator" />
+              AI-Powered Waste Marketplace
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black text-foreground mb-5 tracking-tight leading-[1.1] animate-slide-up">
+              Buy & Sell <span className="text-primary">Recyclable</span> Waste
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto animate-fade-in">
               Turn your waste into value. Connect with buyers and sellers near you.
             </p>
-            <form onSubmit={handleSearch} className="flex gap-2 max-w-xl mx-auto">
+            <form onSubmit={handleSearch} className="flex gap-2 max-w-xl mx-auto animate-fade-in">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
                   placeholder="Search for waste materials..."
-                  className="pl-10 h-12"
+                  className="pl-10 h-12 bg-white border-white/80 rounded-full shadow-sm focus:shadow-md transition-shadow"
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                 />
               </div>
               <Input
                 placeholder="City"
-                className="w-32 h-12"
+                className="w-32 h-12 bg-white border-white/80 rounded-full shadow-sm"
                 value={filters.city}
                 onChange={(e) => setFilters({ ...filters, city: e.target.value })}
               />
-              <Button type="submit" size="lg" className="h-12">
+              <Button type="submit" size="lg" className="h-12 rounded-full px-8 shadow-md hover:shadow-lg transition-shadow">
                 Search
               </Button>
             </form>
@@ -135,17 +139,22 @@ const Home = () => {
       </section>
 
       {/* Category filter */}
-      <section className="border-b border-border">
+      <section className="border-b border-border/60 bg-white">
         <div className="container py-4">
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {categories.map((cat) => {
               const Icon = cat.icon;
+              const isActive = filters.category === cat.id;
               return (
                 <Button
                   key={cat.id}
-                  variant={filters.category === cat.id ? "default" : "outline"}
+                  variant={isActive ? "default" : "outline"}
                   size="sm"
-                  className="flex-shrink-0 gap-2"
+                  className={`flex-shrink-0 gap-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? ''
+                      : 'border-border hover:border-primary/30 hover:bg-primary/5'
+                  }`}
                   onClick={() => setFilters({ ...filters, category: cat.id })}
                 >
                   <Icon className="w-4 h-4" />
@@ -230,20 +239,20 @@ const Home = () => {
                 const CategoryIcon = KNOWN_ICONS[ad.category] || Package;
                 return (
                   <Link key={ad._id} to={`/ad/${ad._id}`}>
-                    <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full">
-                      <div className="aspect-[4/3] bg-muted relative">
+                    <Card className="overflow-hidden h-full transition-all duration-400 rounded-2xl border-0 shadow-[0_1px_3px_hsl(160_20%_12%/0.04),0_4px_20px_hsl(160_20%_12%/0.03)] hover:shadow-[0_8px_30px_hsl(160_20%_12%/0.08)] hover:-translate-y-1 group">
+                      <div className="aspect-[4/3] bg-[hsl(35,20%,93%)] relative overflow-hidden rounded-t-2xl">
                         {ad.images?.[0] ? (
                           <img
                             src={`${MEDIA}${ad.images[0]}`}
                             alt={ad.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
-                            <CategoryIcon className="w-12 h-12 text-muted-foreground/50" />
+                            <CategoryIcon className="w-12 h-12 text-muted-foreground/30" />
                           </div>
                         )}
-                        <Badge className="absolute top-2 left-2 capitalize">{ad.category}</Badge>
+                        <Badge className="absolute top-3 left-3 capitalize rounded-full px-3 shadow-sm">{ad.category}</Badge>
                       </div>
                       <CardContent className="p-4">
                         <h3 className="font-semibold text-foreground line-clamp-2 mb-2">{ad.title}</h3>

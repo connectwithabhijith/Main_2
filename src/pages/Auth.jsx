@@ -92,17 +92,17 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[hsl(35,28%,90%)] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-            <Recycle className="w-6 h-6 text-primary-foreground" />
+        <Link to="/" className="flex items-center justify-center gap-2.5 mb-8 group">
+          <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center transition-all duration-300 shadow-md">
+            <Recycle className="w-6 h-6 text-white transition-transform duration-500 group-hover:rotate-180" />
           </div>
-          <span className="text-2xl font-bold text-foreground">EcoMarket</span>
+          <span className="text-2xl font-bold text-foreground tracking-tight">EcoMarket</span>
         </Link>
 
-        <Card className="border-border/50 shadow-lg">
+        <Card className="border-0 shadow-[0_4px_30px_hsl(160_20%_12%/0.08)] rounded-2xl bg-white">
           <Tabs defaultValue="login" className="w-full">
             <CardHeader className="pb-4">
               <TabsList className="grid w-full grid-cols-2">
