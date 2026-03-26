@@ -26,22 +26,21 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-[hsl(155,100%,22%)] shadow-md">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-            <Recycle className="w-5 h-5 text-primary-foreground" />
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center transition-all duration-300 group-hover:bg-white/25">
+            <Recycle className="w-5 h-5 text-white transition-transform duration-300 group-hover:rotate-180" />
           </div>
-          <span className="text-xl font-bold text-foreground hidden sm:block">EcoMarket</span>
+          <span className="text-xl font-bold text-white hidden sm:block tracking-tight">EcoMarket</span>
         </Link>
 
         {/* Navigation */}
         <nav className="flex items-center gap-2 sm:gap-4">
           {isAuthenticated ? (
             <>
-              {/* Post Ad Button */}
-              <Button asChild size="sm" className="gap-2">
+              <Button asChild size="sm" className="gap-2 bg-white text-[hsl(155,100%,22%)] hover:bg-white/90 rounded-full font-semibold">
                 <Link to="/post-ad">
                   <Plus className="w-4 h-4" />
                   <span className="hidden sm:inline">Post Ad</span>
@@ -49,7 +48,7 @@ const Navbar = () => {
               </Button>
 
               {/* Messages */}
-              <Button variant="ghost" size="icon" asChild>
+              <Button variant="ghost" size="icon" asChild className="text-white/80 hover:text-white hover:bg-white/10">
                 <Link to="/messages">
                   <MessageCircle className="w-5 h-5" />
                 </Link>
@@ -58,9 +57,9 @@ const Navbar = () => {
               {/* User Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="rounded-full">
+                  <Button variant="ghost" size="icon" className="rounded-full hover:bg-white/10">
                     <Avatar className="w-8 h-8">
-                      <AvatarFallback className="bg-primary text-primary-foreground text-sm">
+                      <AvatarFallback className="bg-white/20 text-white text-sm">
                         {getInitials(user?.name)}
                       </AvatarFallback>
                     </Avatar>
@@ -94,10 +93,10 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" asChild className="text-white/90 hover:text-white hover:bg-white/10">
                 <Link to="/auth">Login</Link>
               </Button>
-              <Button asChild>
+              <Button asChild className="bg-white text-[hsl(155,100%,22%)] hover:bg-white/90 rounded-full font-semibold">
                 <Link to="/auth">Sign Up</Link>
               </Button>
             </>

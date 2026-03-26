@@ -826,6 +826,24 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
 
   const IconComponent = waste.icon || Package;
 
+  // Helper to normalize AI array responses that might contain comma-separated strings
+  const getArrayItems = (items) => {
+    if (!items) return [];
+    if (Array.isArray(items)) {
+      // Flatten any comma-separated strings inside the array
+      return items.flatMap(item => 
+        typeof item === 'string' ? item.split(/,(?![^()]*\))/).map(s => s.trim()) : item
+      ).filter(Boolean);
+    }
+    if (typeof items === 'string') {
+      return items.split(/,(?![^()]*\))/).map(s => s.trim()).filter(Boolean);
+    }
+    return [];
+  };
+
+  const industriesList = getArrayItems(waste.industries);
+  const usesList = getArrayItems(waste.uses);
+
   return (
     <div className="mt-8">
       <div
@@ -874,47 +892,63 @@ const WasteClassDetails = ({ predictedClass, onAIData }) => {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Industries Section */}
-          <div className="bg-card/50 rounded-lg p-4 border border-border/50">
-            <div className="flex items-center gap-2 mb-3">
-              <Factory className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold text-foreground">
-                Where It's Used
-              </span>
+          {industriesList.length > 0 ? (
+            <div className="bg-card/50 rounded-lg p-4 border border-border/50">
+              <div className="flex items-center gap-2 mb-3">
+                <Factory className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-foreground">
+                  Where It's Used
+                </span>
+              </div>
+              <div className="space-y-2">
+                {industriesList.map((industry, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 px-3 py-2 bg-secondary rounded-lg"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-sm text-secondary-foreground">
+                      {industry}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {waste.industries.map((industry) => (
-                <div
-                  key={industry}
-                  className="flex items-center gap-2 px-3 py-2 bg-secondary rounded-lg"
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  <span className="text-sm text-secondary-foreground">
-                    {industry}
-                  </span>
-                </div>
-              ))}
+          ) : (
+            <div className="bg-card/50 rounded-lg p-4 border border-border/50 flex flex-col items-center justify-center text-center opacity-70">
+              <Factory className="w-8 h-8 text-muted-foreground mb-2" />
+              <span className="text-sm font-medium text-foreground">Industry Uses</span>
+              <p className="text-xs text-muted-foreground mt-1">No specific industry data available</p>
             </div>
-          </div>
+          )}
 
           {/* Recycled Into Section */}
-          <div className="bg-card/50 rounded-lg p-4 border border-border/50">
-            <div className="flex items-center gap-2 mb-3">
-              <Recycle className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold text-foreground">
-                Recycled Into
-              </span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {waste.uses.map((use) => (
-                <span
-                  key={use}
-                  className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
-                >
-                  {use}
+          {usesList.length > 0 ? (
+            <div className="bg-card/50 rounded-lg p-4 border border-border/50">
+              <div className="flex items-center gap-2 mb-3">
+                <Recycle className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-foreground">
+                  Recycled Into
                 </span>
-              ))}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {usesList.map((use, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                  >
+                    {use}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="bg-card/50 rounded-lg p-4 border border-border/50 flex flex-col items-center justify-center text-center opacity-70">
+              <Recycle className="w-8 h-8 text-muted-foreground mb-2" />
+              <span className="text-sm font-medium text-foreground">Recycled Products</span>
+              <p className="text-xs text-muted-foreground mt-1">No specific recycled products listed</p>
+            </div>
+          )}
         </div>
 
         {/* Recycling Steps Section */}

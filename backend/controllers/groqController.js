@@ -20,7 +20,7 @@ You are an API. Respond ONLY with valid JSON.
 ${ragAvailable ? `REFERENCE DATA (use this as your PRIMARY source — base your response on this verified information):
 ${context}
 
-IMPORTANT: You MUST use the reference data above as the primary basis for your response. Only supplement with your own knowledge where the reference data has gaps. Include any applicable Indian government regulations, rules, and penalties mentioned in the reference data.` : ""}
+IMPORTANT: You MUST use the reference data above as the primary basis for your response. However, if the reference data is missing specific fields like 'industries', 'uses', or 'price', you MUST supplement with your own general knowledge to ensure no fields are left empty. Include any applicable Indian government regulations, rules, and penalties mentioned in the reference data.` : ""}
 
 Waste type: ${wasteType}
 
@@ -50,6 +50,7 @@ Rules:
 - Price should be realistic Indian market value from the reference data if available.
 - Amount should be numeric only.
 - Unit example: "per kg", "per piece".
+- MUST provide at least 2-3 items for 'industries' and 'uses'. If the reference data doesn't mention any, use your general knowledge (e.g. for food waste, industries could be 'Agriculture', 'Bio-energy Plants', 'Composting Facilities').
 - recyclingSteps must reference applicable Indian government regulations (SWM Rules, Plastic Waste Management Rules, E-Waste Rules, etc.) where relevant.
 - governmentRegulations must include the specific rule names, key provisions, citizen duties, and penalties from the reference data.
 - Do NOT return anything except JSON.

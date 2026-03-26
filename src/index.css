@@ -1,76 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
-    --background: 140 30% 96%;
-    --foreground: 150 30% 15%;
+    /* ═══════════════════════════════════════════════════════
+       SHOPCART-INSPIRED LIGHT THEME
+       Warm beige backgrounds + Deep forest green accents
+       Clean, premium, generous whitespace
+       ═══════════════════════════════════════════════════════ */
 
+    /* Warm off-white / beige backgrounds */
+    --background: 35 30% 95%;
+    --foreground: 160 20% 12%;
+
+    /* Pure white cards */
     --card: 0 0% 100%;
-    --card-foreground: 150 30% 15%;
+    --card-foreground: 160 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 15%;
+    --popover-foreground: 160 20% 12%;
 
-    --primary: 142 76% 36%;
+    /* Deep forest green — CTA / primary brand */
+    --primary: 155 100% 22%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 140 25% 90%;
-    --secondary-foreground: 150 30% 20%;
+    /* Light sage for secondary sections */
+    --secondary: 140 15% 92%;
+    --secondary-foreground: 160 20% 25%;
 
-    --muted: 140 20% 92%;
-    --muted-foreground: 150 15% 40%;
+    /* Warm-toned muted */
+    --muted: 35 15% 92%;
+    --muted-foreground: 160 10% 42%;
 
-    --accent: 85 60% 45%;
+    /* Deep green accent */
+    --accent: 155 90% 26%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 140 20% 85%;
-    --input: 140 20% 90%;
-    --ring: 142 76% 36%;
+    /* Soft warm borders */
+    --border: 35 15% 87%;
+    --input: 35 15% 91%;
+    --ring: 155 100% 22%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom colors */
-    --glow: 142 76% 36%;
-    --success: 142 76% 36%;
+    /* Custom */
+    --glow: 155 100% 22%;
+    --success: 155 80% 30%;
     --success-foreground: 0 0% 100%;
-    
-    /* Eco theme colors */
-    --eco-leaf: 142 76% 36%;
-    --eco-forest: 150 50% 30%;
-    --eco-earth: 30 50% 45%;
-    --eco-sky: 200 80% 55%;
-    
+
+    /* Brand palette */
+    --brand-green: 155 100% 22%;
+    --brand-green-light: 155 40% 92%;
+    --brand-beige: 35 30% 92%;
+    --brand-beige-dark: 35 20% 80%;
+    --brand-tan: 30 25% 85%;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(85 60% 45%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(140 30% 98%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(142 76% 36% / 0.1) 0%, transparent 70%);
-    --gradient-eco: linear-gradient(135deg, hsl(142 76% 36% / 0.08) 0%, hsl(85 60% 45% / 0.04) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(155 100% 22%) 0%, hsl(160 80% 28%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(35 20% 98%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(155 100% 22% / 0.04) 0%, transparent 70%);
+    --gradient-eco: linear-gradient(135deg, hsl(155 100% 22% / 0.03) 0%, hsl(35 30% 92% / 0.5) 100%);
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(142 76% 36% / 0.2);
-    --shadow-card: 0 4px 24px hsl(150 30% 20% / 0.08);
+    --shadow-glow: 0 0 20px hsl(155 100% 22% / 0.08);
+    --shadow-card: 0 1px 3px hsl(160 20% 12% / 0.04), 0 4px 20px hsl(160 20% 12% / 0.03);
+    --shadow-card-hover: 0 8px 30px hsl(160 20% 12% / 0.08);
 
     /* Fonts */
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 150 30% 15%;
-    --sidebar-primary: 142 76% 36%;
+    --sidebar-foreground: 160 20% 12%;
+    --sidebar-primary: 155 100% 22%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 140 20% 92%;
-    --sidebar-accent-foreground: 150 30% 15%;
-    --sidebar-border: 140 20% 85%;
-    --sidebar-ring: 142 76% 36%;
+    --sidebar-accent: 140 15% 92%;
+    --sidebar-accent-foreground: 160 20% 12%;
+    --sidebar-border: 35 15% 87%;
+    --sidebar-ring: 155 100% 22%;
   }
 }
 
@@ -87,12 +100,61 @@
   code, pre {
     font-family: var(--font-mono);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Warm scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(35 30% 95%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(35 15% 78%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(35 15% 65%);
+  }
+
+  ::selection {
+    background: hsl(155 100% 22% / 0.12);
+    color: hsl(160 20% 12%);
+  }
 }
 
 @layer utilities {
+
+  /* ═══════════════════════════════════════════════════════
+     SHADOWS
+     ═══════════════════════════════════════════════════════ */
+
   .glow {
     box-shadow: var(--shadow-glow);
   }
+
+  .glow-sm {
+    box-shadow: 0 0 10px hsl(155 100% 22% / 0.06);
+  }
+
+  .glow-lg {
+    box-shadow: 0 0 30px hsl(155 100% 22% / 0.1);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 12px hsl(155 100% 22% / 0.1);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     GRADIENT TEXT
+     ═══════════════════════════════════════════════════════ */
 
   .gradient-text {
     background: var(--gradient-primary);
@@ -101,85 +163,204 @@
     background-clip: text;
   }
 
+  /* ═══════════════════════════════════════════════════════
+     GRID BACKGROUNDS (subtle warm)
+     ═══════════════════════════════════════════════════════ */
+
+  .grid-bg {
+    background-size: 60px 60px;
+    background-image:
+      linear-gradient(to right, hsl(155 100% 22% / 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(155 100% 22% / 0.02) 1px, transparent 1px);
+  }
+
+  .grid-bg-strong {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, hsl(155 100% 22% / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(155 100% 22% / 0.04) 1px, transparent 1px);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════════════════ */
+
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 2.5s ease-in-out infinite;
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px hsl(142 76% 46% / 0.2);
-    }
-    50% {
-      box-shadow: 0 0 40px hsl(142 76% 46% / 0.4);
-    }
+    0%, 100% { box-shadow: 0 1px 3px hsl(160 20% 12% / 0.04); }
+    50% { box-shadow: 0 4px 20px hsl(155 100% 22% / 0.08); }
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
   }
 
-  /* Section card hover effect */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-glow-border {
+    animation: glowBorder 3s ease-in-out infinite;
+  }
+
+  @keyframes glowBorder {
+    0%, 100% { border-color: hsl(155 100% 22% / 0.1); }
+    50% { border-color: hsl(155 100% 22% / 0.25); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background-size: 200% 100%;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     SECTION CARD (White, rounded, soft shadow)
+     ═══════════════════════════════════════════════════════ */
+
   .section-card {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+    @apply rounded-2xl p-6 transition-all duration-300;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(35 15% 90%);
+    box-shadow: var(--shadow-card);
   }
 
   .section-card:hover {
-    @apply shadow-lg border-primary/20;
+    box-shadow: var(--shadow-card-hover);
   }
 
-  /* Stat card styling */
   .stat-card {
-    @apply bg-gradient-to-br from-primary/5 to-primary/0 border border-primary/10 rounded-xl p-5 text-center transition-all duration-300;
+    @apply rounded-2xl p-5 text-center transition-all duration-300;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(35 15% 90%);
+    box-shadow: var(--shadow-card);
   }
 
   .stat-card:hover {
-    @apply shadow-md border-primary/30 from-primary/10;
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
   }
 
-  /* Journey connector line */
+  .glass {
+    background: hsl(0 0% 100% / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(35 15% 87%);
+  }
+
+  .glass-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     JOURNEY CONNECTOR
+     ═══════════════════════════════════════════════════════ */
+
   .journey-connector {
-    @apply absolute top-1/2 left-full w-full h-0.5 bg-gradient-to-r from-primary/40 to-primary/10;
+    @apply absolute top-1/2 left-full w-full h-0.5;
+    background: linear-gradient(to right, hsl(155 100% 22% / 0.25), hsl(155 100% 22% / 0.05));
   }
 
-  /* Animated underline for links */
+  /* ═══════════════════════════════════════════════════════
+     LINK UNDERLINE (Green)
+     ═══════════════════════════════════════════════════════ */
+
   .link-underline {
     @apply relative;
   }
 
   .link-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: hsl(155 100% 22%);
   }
 
   .link-underline:hover::after {
     @apply w-full;
   }
 
-  /* Eco gradient background */
+  /* ═══════════════════════════════════════════════════════
+     ECO GRADIENT (Warm beige)
+     ═══════════════════════════════════════════════════════ */
+
   .eco-gradient {
-    background: linear-gradient(135deg, hsl(142 76% 36% / 0.08) 0%, hsl(85 60% 45% / 0.04) 100%);
+    background: linear-gradient(135deg, hsl(155 100% 22% / 0.03) 0%, hsl(35 30% 92% / 0.5) 100%);
   }
 
-  /* Card shine effect on hover */
+  /* ═══════════════════════════════════════════════════════
+     CARD SHINE
+     ═══════════════════════════════════════════════════════ */
+
   .card-shine {
     @apply relative overflow-hidden;
   }
 
   .card-shine::before {
     content: '';
-    @apply absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform skew-x-12 transition-transform duration-700;
+    @apply absolute top-0 -left-full w-1/2 h-full transform skew-x-12 transition-transform duration-700;
+    background: linear-gradient(to right, transparent, hsl(0 0% 100% / 0.3), transparent);
   }
 
   .card-shine:hover::before {
     @apply left-full;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     DOT INDICATOR (Green)
+     ═══════════════════════════════════════════════════════ */
+
+  .dot-indicator {
+    @apply w-2 h-2 rounded-full;
+    background: hsl(155 100% 30%);
+    box-shadow: 0 0 4px hsl(155 100% 30% / 0.4);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     LINE DECORATION
+     ═══════════════════════════════════════════════════════ */
+
+  .line-decoration::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin-top: 12px;
+    background: hsl(155 100% 22%);
+    border-radius: 1px;
   }
 }
